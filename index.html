@@ -6,10 +6,15 @@
 <title>Trendline Training & Consultancy Ltd</title>
 <script src="https://cdn.tailwindcss.com/3.4.16"></script>
 <script>tailwind.config={theme:{extend:{colors:{primary:'#1e3a8a',secondary:'#f3f4f6'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+
+
+
 <style>
 :where([class^="ri-"])::before { content: "\f3c2"; }
 body {
@@ -30,31 +35,79 @@ border-color: #1e3a8a;
 transform: translateY(-5px);
 box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
 }
+html {
+    scroll-behavior: smooth;
+  }
+
+  .bar {
+    height: 3px;
+    width: 100%;
+    background-color: black;
+    border-radius: 9999px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  #menuToggle.open .bar1 {
+    transform: rotate(40deg) translate(9px, 10.5px);
+  }
+
+  #menuToggle.open .bar2 {
+    opacity: 0;
+  }
+
+  #menuToggle.open .bar3 {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
 </style>
 </head>
 <body class="bg-white">
 <!-- Header -->
 <header class="w-full bg-white shadow-sm fixed top-0 left-0 z-50">
-<div class="container mx-auto px-4 py-4 flex justify-between items-center">
-<div class="flex items-center">
-<img src="https://static.readdy.ai/image/7a2941f4f4bd206a071b69a2951de2dc/66ca896711b4be15fa15f7657f0c555e.jpeg" alt="Trendline Training Logo" class="w-16 h-16 mr-3">
-<div>
-<h1 class="text-primary text-xl font-bold">Trendline Training</h1>
-<p class="text-gray-600 text-xs">Transforming Data Into Strategy</p>
-</div>
-</div>
-<nav class="hidden md:flex space-x-8">
-<a href="#home" class="text-gray-800 hover:text-primary font-medium">Home</a>
-<a href="#services" class="text-gray-800 hover:text-primary font-medium">Services</a>
-<a href="#about" class="text-gray-800 hover:text-primary font-medium">About Us</a>
-<a href="#programs" class="text-gray-800 hover:text-primary font-medium">Programs</a>
-<a href="#contact" class="text-gray-800 hover:text-primary font-medium">Contact</a>
-</nav>
-<button id="openBookingBtn2" class="hidden md:block bg-primary text-white px-6 py-2 !rounded-button font-medium hover:bg-primary/90 transition whitespace-nowrap">Book Appointment</button>
-<div class="md:hidden w-10 h-10 flex items-center justify-center">
-<i class="ri-menu-line ri-2x text-gray-700"></i>
-</div>
-</div>
+  <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+    <div class="flex items-center">
+      <img src="https://static.readdy.ai/image/7a2941f4f4bd206a071b69a2951de2dc/66ca896711b4be15fa15f7657f0c555e.jpeg" alt="Trendline Training Logo" class="w-16 h-16 md:mr-3">
+      <div class="hidden lg:block">
+        <h1 class="text-primary text-xl font-bold">Trendline Training</h1>
+        <p class="text-gray-600 text-xs">Transforming Data Into Strategy</p>
+      </div>
+    </div>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden md:flex space-x-5">
+      <a href="#home" class="text-gray-800 hover:text-primary font-medium">Home</a>
+      <a href="#services" class="text-gray-800 hover:text-primary font-medium">Services</a>
+      <a href="#about" class="text-gray-800 hover:text-primary font-medium">About Us</a>
+      <a href="#programs" class="text-gray-800 hover:text-primary font-medium">Programs</a>
+      <a href="#contact" class="text-gray-800 hover:text-primary font-medium">Contact</a>
+    </nav>
+  
+<!-- Calendly link widget begin -->
+<button onclick="Calendly.initPopupWidget({url: 'https://calendly.com/trendline02tc/30min'}); return false;" class="bg-primary text-white px-4 py-2 rounded font-medium hover:bg-primary/90 transition whitespace-nowrap">Book Appointment</button>
+<!-- Calendly link widget end -->
+
+    <!-- Mobile Menu Toggle -->
+    <div class="md:hidden w-10 h-10 flex items-center justify-center">
+      <div id="menuToggle" class="w-8 h-6 flex flex-col justify-between items-center cursor-pointer group z-[100]">
+        <span class="bar bar1"></span>
+        <span class="bar bar2"></span>
+        <span class="bar bar3"></span>
+      </div>
+    </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="md:hidden hidden bg-white p-4 shadow-md h-screen w-1/2 fixed top-0 right-0 z-50">
+    <nav class="flex flex-col space-y-4">
+      <a href="#home" class="text-gray-800 hover:text-primary font-medium">Home</a>
+      <a href="#services" class="text-gray-800 hover:text-primary font-medium">Services</a>
+      <a href="#about" class="text-gray-800 hover:text-primary font-medium">About Us</a>
+      <a href="#programs" class="text-gray-800 hover:text-primary font-medium">Programs</a>
+      <a href="#contact" class="text-gray-800 hover:text-primary font-medium">Contact</a>
+    </nav>
+  </div>
+  
+
+  <!-- Overlay -->
+  <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden z-30 md:hidden"></div>
 </header>
 <!-- Hero Section -->
 <section id="home" class="hero-section pt-24 relative overflow-hidden" style="background-image: url('https://static.readdy.ai/image/7a2941f4f4bd206a071b69a2951de2dc/fade58a5e5e7b26afb5e882a068812b0.jpeg')">
@@ -65,8 +118,14 @@ box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
 <p class="text-lg text-gray-700 mb-8">Trendline Training & Consultancy provides expert-led corporate training and consultancy services that empower organizations to leverage data for strategic decision-making and sustainable growth.</p>
 <div class="flex flex-col gap-4">
 <div class="flex flex-col sm:flex-row gap-4">
-<button id="exploreServicesBtn" class="bg-primary text-white px-8 py-3 !rounded-button font-medium hover:bg-primary/90 transition whitespace-nowrap">Explore Our Services</button>
-<a href="#upcoming-events" class="bg-primary text-white px-8 py-3 !rounded-button font-medium hover:bg-primary/90 transition whitespace-nowrap">Upcoming Events</a>
+  <button
+  onclick="document.getElementById('services').scrollIntoView({ behavior: 'smooth' });"
+  class="bg-primary text-white px-8 py-3 !rounded-button font-medium hover:bg-primary/90 transition whitespace-nowrap"
+>
+  Explore Our Services
+</button>
+
+<!-- <a href="#upcoming-events" class="bg-primary text-white px-8 py-3 !rounded-button font-medium hover:bg-primary/90 transition whitespace-nowrap">Upcoming Events</a> -->
 <!-- Services Modal -->
 <div id="servicesModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden" style="opacity: 0">
 <div class="flex items-center justify-center min-h-screen p-4">
@@ -150,56 +209,56 @@ box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
 <h2 class="text-center text-2xl font-bold text-gray-900 mb-4">Industries We Serve</h2>
 <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Our specialized training and consultancy services cater to diverse industries, helping organizations harness the power of data analytics</p>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-<div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition">
+<div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition cursor-pointer">
 <div class="w-16 h-16 bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl flex items-center justify-center mb-6 shadow-sm transform hover:scale-105 transition-transform">
 <i class="ri-bank-fill text-primary ri-2x"></i>
 </div>
 <h3 class="font-bold text-gray-900 mb-3">Financial Services</h3>
 <p class="text-gray-600 text-sm leading-relaxed">Banks, Insurance Companies, Investment Firms, FinTech Startups, and Asset Management</p>
 </div>
-<div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition">
+<div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition cursor-pointer">
 <div class="w-16 h-16 bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl flex items-center justify-center mb-6 shadow-sm transform hover:scale-105 transition-transform">
 <i class="ri-hospital-fill text-primary ri-2x"></i>
 </div>
 <h3 class="font-bold text-gray-900 mb-3">Healthcare</h3>
 <p class="text-gray-600 text-sm leading-relaxed">Hospitals, Medical Clinics, Pharmaceutical Companies, Research Institutions, and Healthcare Tech</p>
 </div>
-<div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition">
+<div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition cursor-pointer">
 <div class="w-16 h-16 bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl flex items-center justify-center mb-6 shadow-sm transform hover:scale-105 transition-transform">
 <i class="ri-store-2-fill text-primary ri-2x"></i>
 </div>
 <h3 class="font-bold text-gray-900 mb-3">Retail & E-commerce</h3>
 <p class="text-gray-600 text-sm leading-relaxed">Online Marketplaces, Retail Chains, Consumer Brands, Digital Commerce, and Shopping Centers</p>
 </div>
-<div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition">
+<div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition cursor-pointer">
 <div class="w-16 h-16 bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl flex items-center justify-center mb-6 shadow-sm transform hover:scale-105 transition-transform">
 <i class="ri-government-fill text-primary ri-2x"></i>
 </div>
 <h3 class="font-bold text-gray-900 mb-3">Government</h3>
 <p class="text-gray-600 text-sm leading-relaxed">Public Sector Organizations, Government Agencies, Regulatory Bodies, and State-Owned Enterprises</p>
 </div>
-<div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition">
+<div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition cursor-pointer">
 <div class="w-16 h-16 bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl flex items-center justify-center mb-6 shadow-sm transform hover:scale-105 transition-transform">
 <i class="ri-building-2-fill text-primary ri-2x"></i>
 </div>
 <h3 class="font-bold text-gray-900 mb-3">Real Estate</h3>
 <p class="text-gray-600 text-sm leading-relaxed">Property Development, Real Estate Management, Investment Trusts, and Property Tech Solutions</p>
 </div>
-<div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition">
+<div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition cursor-pointer">
 <div class="w-16 h-16 bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl flex items-center justify-center mb-6 shadow-sm transform hover:scale-105 transition-transform">
 <i class="ri-plant-fill text-primary ri-2x"></i>
 </div>
 <h3 class="font-bold text-gray-900 mb-3">Agriculture</h3>
 <p class="text-gray-600 text-sm leading-relaxed">Smart Farming Operations, Agribusiness Enterprises, Agricultural Technology, and Food Production</p>
 </div>
-<div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition">
+<div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition cursor-pointer">
 <div class="w-16 h-16 bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl flex items-center justify-center mb-6 shadow-sm transform hover:scale-105 transition-transform">
 <i class="ri-truck-fill text-primary ri-2x"></i>
 </div>
 <h3 class="font-bold text-gray-900 mb-3">Logistics</h3>
 <p class="text-gray-600 text-sm leading-relaxed">Transportation Networks, Supply Chain Management, Distribution Centers, and Logistics Tech</p>
 </div>
-<div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition">
+<div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition cursor-pointer">
 <div class="w-16 h-16 bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl flex items-center justify-center mb-6 shadow-sm transform hover:scale-105 transition-transform">
 <i class="ri-factory-fill text-primary ri-2x"></i>
 </div>
@@ -218,7 +277,7 @@ box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 <!-- Service 1 -->
-<div class="service-card bg-white rounded-lg shadow-md p-8 transition duration-300">
+<div class="service-card bg-white rounded-lg shadow-md p-8 transition duration-300 cursor-pointer">
 <div class="w-14 h-14 bg-gradient-to-br from-primary/20 to-primary/5 rounded-full flex items-center justify-center mb-6 shadow-sm">
 <i class="ri-presentation-fill ri-2x text-primary"></i>
 </div>
@@ -253,13 +312,10 @@ box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
 </li>
 </ul>
 </div>
-<button class="learn-more-btn text-primary font-medium flex items-center">
-Learn more
-<i class="ri-arrow-right-line ml-2"></i>
-</button>
+
 </div>
 <!-- Service 2 -->
-<div class="service-card bg-white rounded-lg shadow-md p-8 transition duration-300">
+<div class="service-card bg-white rounded-lg shadow-md p-8 transition duration-300 cursor-pointer">
 <div class="w-14 h-14 bg-gradient-to-br from-primary/20 to-primary/5 rounded-full flex items-center justify-center mb-6 shadow-sm">
 <i class="ri-bar-chart-2-fill ri-2x text-primary"></i>
 </div>
@@ -286,13 +342,9 @@ Learn more
 </li>
 </ul>
 </div>
-<button class="learn-more-btn text-primary font-medium flex items-center">
-Learn more
-<i class="ri-arrow-right-line ml-2"></i>
-</button>
 </div>
 <!-- Service 3 -->
-<div class="service-card bg-white rounded-lg shadow-md p-8 transition duration-300">
+<div class="service-card bg-white rounded-lg shadow-md p-8 transition duration-300 cursor-pointer">
 <div class="w-14 h-14 bg-gradient-to-br from-primary/20 to-primary/5 rounded-full flex items-center justify-center mb-6 shadow-sm">
 <i class="ri-team-fill ri-2x text-primary"></i>
 </div>
@@ -319,13 +371,10 @@ Learn more
 </li>
 </ul>
 </div>
-<button class="learn-more-btn text-primary font-medium flex items-center">
-Learn more
-<i class="ri-arrow-right-line ml-2"></i>
-</button>
+
 </div>
 <!-- Service 4 -->
-<div class="service-card bg-white rounded-lg shadow-md p-8 transition duration-300">
+<div class="service-card bg-white rounded-lg shadow-md p-8 transition duration-300 cursor-pointer">
 <div class="w-14 h-14 bg-gradient-to-br from-primary/20 to-primary/5 rounded-full flex items-center justify-center mb-6 shadow-sm">
 <i class="ri-line-chart-fill ri-2x text-primary"></i>
 </div>
@@ -352,13 +401,10 @@ Learn more
 </li>
 </ul>
 </div>
-<button class="learn-more-btn text-primary font-medium flex items-center">
-Learn more
-<i class="ri-arrow-right-line ml-2"></i>
-</button>
+
 </div>
 <!-- Service 5 -->
-<div class="service-card bg-white rounded-lg shadow-md p-8 transition duration-300">
+<div class="service-card bg-white rounded-lg shadow-md p-8 transition duration-300 cursor-pointer">
 <div class="w-14 h-14 bg-gradient-to-br from-primary/20 to-primary/5 rounded-full flex items-center justify-center mb-6 shadow-sm">
 <i class="ri-customer-service-2-fill ri-2x text-primary"></i>
 </div>
@@ -385,13 +431,10 @@ Learn more
 </li>
 </ul>
 </div>
-<button class="learn-more-btn text-primary font-medium flex items-center">
-Learn more
-<i class="ri-arrow-right-line ml-2"></i>
-</button>
+
 </div>
 <!-- Service 6 -->
-<div class="service-card bg-white rounded-lg shadow-md p-8 transition duration-300">
+<div class="service-card bg-white rounded-lg shadow-md p-8 transition duration-300 cursor-pointer">
 <div class="w-14 h-14 bg-gradient-to-br from-primary/20 to-primary/5 rounded-full flex items-center justify-center mb-6 shadow-sm">
 <i class="ri-file-chart-fill ri-2x text-primary"></i>
 </div>
@@ -418,10 +461,7 @@ Learn more
 </li>
 </ul>
 </div>
-<button class="learn-more-btn text-primary font-medium flex items-center">
-Learn more
-<i class="ri-arrow-right-line ml-2"></i>
-</button>
+
 </div>
 </div>
 </div>
@@ -480,9 +520,7 @@ Learn more
 </div>
 </li>
 </ul>
-</div>
-<button id="learnMoreBtn" class="bg-primary text-white px-8 py-3 !rounded-button font-medium hover:bg-primary/90 transition whitespace-nowrap">Learn More About Us</button>
-</div>
+
 </div>
 </div>
 </section>
@@ -686,7 +724,8 @@ Learn more
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 <!-- Program 1 - Beginner -->
-<div class="bg-white rounded-lg shadow-md overflow-hidden">
+
+<div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 cursor-pointer">
 <div class="h-48 bg-gray-200" style="background-image: url('https://readdy.ai/api/search-image?query=professional%20black%20data%20analyst%20teaching%20in%20modern%20classroom%2C%20multiple%20computer%20screens%20displaying%20excel%20spreadsheets%20and%20basic%20charts%2C%20bright%20welcoming%20learning%20environment%2C%20students%20engaged%20in%20hands-on%20training%2C%20clean%20corporate%20setting&width=800&height=400&seq=3&orientation=landscape'); background-size: cover; background-position: center;"></div>
 <div class="p-6">
 <div class="flex justify-between items-center mb-4">
@@ -696,9 +735,9 @@ Learn more
 <h3 class="text-xl font-bold text-gray-900 mb-2">Data Analytics Fundamentals</h3>
 <p class="text-gray-600 mb-4">Master the essentials of data analysis through hands-on training in Excel, basic statistics, and data visualization fundamentals. Perfect for beginners starting their analytics journey.</p>
 <div class="flex justify-between items-center">
-<span class="text-primary font-bold">ZMW 1,500</span>
+<span class="text-primary price font-bold">ZMW 1,500</span>
 <div class="flex gap-2">
-<button class="view-content-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">View Content</button>
+<!-- <button class="view-content-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">View Content</button> -->
 <button class="enroll-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">Enroll Now</button>
 </div>
 </div>
@@ -787,7 +826,7 @@ Learn more
 </div>
 </div>
 <!-- Program 2 - Intermediate -->
-<div class="bg-white rounded-lg shadow-md overflow-hidden">
+<div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 cursor-pointer">
 <div class="h-48 bg-gray-200" style="background-image: url('https://readdy.ai/api/search-image?query=african%20business%20professional%20teaching%20data%20analytics%20to%20beginners%2C%20interactive%20whiteboard%20with%20charts%2C%20modern%20office%20environment%2C%20natural%20lighting%2C%20professional%20attire%2C%20engaged%20learners&width=800&height=400&seq=1&orientation=landscape'); background-size: cover; background-position: center;"></div>
 <div class="p-6">
 <div class="flex justify-between items-center mb-4">
@@ -797,9 +836,9 @@ Learn more
 <h3 class="text-xl font-bold text-gray-900 mb-2">Intermediate Data Analytics</h3>
 <p class="text-gray-600 mb-4">Build on your foundation with advanced analysis techniques, data modeling, and practical business applications. Develop expertise in transforming data into actionable insights.</p>
 <div class="flex justify-between items-center">
-<span class="text-primary font-bold">ZMW 2,500</span>
+<span class="text-primary price font-bold">ZMW 2,500</span>
 <div class="flex gap-2">
-<button class="view-content-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">View Content</button>
+<!-- <button class="view-content-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">View Content</button> -->
 <button class="enroll-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">Enroll Now</button>
 </div>
 </div>
@@ -970,7 +1009,7 @@ Learn more
 </div>
 </div>
 <!-- Program 3 - Advanced -->
-<div class="bg-white rounded-lg shadow-md overflow-hidden">
+<div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 cursor-pointer">
 <div class="h-48 bg-gray-200" style="background-image: url('https://readdy.ai/api/search-image?query=professional%20black%20data%20scientist%20working%20with%20multiple%20screens%20showing%20advanced%20machine%20learning%20models%2C%20neural%20networks%20visualizations%2C%20modern%20tech%20office%20with%20blue%20accent%20lighting%2C%20data%20center%20environment%2C%20focused%20professional%20analysis&width=800&height=400&seq=3&orientation=landscape'); background-size: cover; background-position: center;"></div>
 <div class="p-6">
 <div class="flex justify-between items-center mb-4">
@@ -980,9 +1019,9 @@ Learn more
 <h3 class="text-xl font-bold text-gray-900 mb-2">Advanced Data Analytics & AI</h3>
 <p class="text-gray-600 mb-4">Dive deep into machine learning, predictive analytics, and AI applications. Learn to implement advanced statistical models and develop automated data pipelines for enterprise-level solutions.</p>
 <div class="flex justify-between items-center">
-<span class="text-primary font-bold">ZMW 4,500</span>
+<span class="text-primary price font-bold">ZMW 4,500</span>
 <div class="flex gap-2">
-<button class="view-content-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">View Content</button>
+<!-- <button class="view-content-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">View Content</button> -->
 <button class="enroll-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">Enroll Now</button>
 </div>
 </div>
@@ -1071,7 +1110,7 @@ Learn more
 </div>
 </div>
 <!-- Program 4 - Power BI -->
-<div class="bg-white rounded-lg shadow-md overflow-hidden">
+<div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 cursor-pointer">
 <div class="h-48 bg-gray-200" style="background-image: url('https://readdy.ai/api/search-image?query=professional%20black%20data%20analyst%20working%20with%20multiple%20power%20bi%20dashboards%2C%20modern%20office%20setting%20with%20blue%20accent%20lighting%2C%20interactive%20data%20visualization%20screens%2C%20clean%20corporate%20environment%2C%20focused%20analysis&width=800&height=400&seq=4&orientation=landscape'); background-size: cover; background-position: center;"></div>
 <div class="p-6">
 <div class="flex justify-between items-center mb-4">
@@ -1097,16 +1136,16 @@ Learn more
 </div>
 </div>
 <div class="flex justify-between items-center">
-<span class="text-primary font-bold">ZMW 3,500</span>
+<span class="text-primary price font-bold">ZMW 3,500</span>
 <div class="flex gap-2">
-<button class="view-content-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">View Content</button>
+<!-- <button class="view-content-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">View Content</button> -->
 <button class="enroll-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">Enroll Now</button>
 </div>
 </div>
 </div>
 </div>
 <!-- Program 5 - SQL -->
-<div class="bg-white rounded-lg shadow-md overflow-hidden">
+<div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 cursor-pointer">
 <div class="h-48 bg-gray-200" style="background-image: url('https://readdy.ai/api/search-image?query=confident%20african%20american%20female%20data%20scientist%20presenting%20SQL%20database%20concepts%2C%20standing%20in%20front%20of%20large%20interactive%20screens%20showing%20database%20schemas%20and%20query%20results%2C%20modern%20corporate%20training%20room%2C%20professional%20business%20attire%2C%20engaging%20teaching%20style&width=800&height=400&seq=5&orientation=landscape'); background-size: cover; background-position: center;"></div>
 <div class="p-6">
 <div class="flex justify-between items-center mb-4">
@@ -1150,9 +1189,9 @@ Learn more
 </div>
 </div>
 <div class="flex justify-between items-center">
-<span class="text-primary font-bold">ZMW 2,500</span>
+<span class="text-primary price font-bold">ZMW 2,500</span>
 <div class="flex gap-2">
-<button class="view-content-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">View Content</button>
+<!-- <button class="view-content-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">View Content</button> -->
 <button class="enroll-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">Enroll Now</button>
 </div>
 </div>
@@ -1241,7 +1280,7 @@ Learn more
 </div>
 </div>
 <!-- Program 6 - Data Visualization -->
-<div class="bg-white rounded-lg shadow-md overflow-hidden">
+<div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 cursor-pointer">
 <div class="h-48 bg-gray-200" style="background-image: url('https://readdy.ai/api/search-image?query=professional%20data%20visualization%20expert%20working%20with%20multiple%20large%20screens%20showing%20colorful%20interactive%20dashboards%2C%20charts%20and%20infographics%2C%20modern%20tech%20office%20with%20ambient%20lighting%2C%20clean%20minimalist%20workspace%2C%20data%20storytelling%20presentation&width=800&height=400&seq=6&orientation=landscape'); background-size: cover; background-position: center;"></div>
 <div class="p-6">
 <div class="flex justify-between items-center mb-4">
@@ -1285,9 +1324,9 @@ Learn more
 </div>
 </div>
 <div class="flex justify-between items-center">
-<span class="text-primary font-bold">ZMW 2,500</span>
+<span class="text-primary price font-bold">ZMW 2,500</span>
 <div class="flex gap-2">
-<button class="view-content-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">View Content</button>
+<!-- <button class="view-content-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">View Content</button> -->
 <button class="enroll-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">Enroll Now</button>
 </div>
 </div>
@@ -1376,7 +1415,7 @@ Learn more
 </div>
 </div>
 <!-- Program 7 - Data Storytelling -->
-<div class="bg-white rounded-lg shadow-md overflow-hidden">
+<div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 cursor-pointer">
 <div class="h-48 bg-gray-200" style="background-image: url('https://readdy.ai/api/search-image?query=professional%20data%20storyteller%20presenting%20engaging%20data%20narrative%20on%20large%20screens%2C%20modern%20presentation%20room%20with%20dynamic%20visualizations%20and%20infographics%2C%20storytelling%20elements%2C%20clean%20corporate%20environment%2C%20audience%20engagement%2C%20sophisticated%20data%20presentation%20techniques&width=800&height=400&seq=7&orientation=landscape'); background-size: cover; background-position: center;"></div>
 <div class="p-6">
 <div class="flex justify-between items-center mb-4">
@@ -1402,16 +1441,16 @@ Learn more
 </div>
 </div>
 <div class="flex justify-between items-center">
-<span class="text-primary font-bold">ZMW 2,000</span>
+<span class="text-primary price font-bold">ZMW 2,000</span>
 <div class="flex gap-2">
-<button class="view-content-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">View Content</button>
+<!-- <button class="view-content-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">View Content</button> -->
 <button class="enroll-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">Enroll Now</button>
 </div>
 </div>
 </div>
 </div>
 <!-- Program 8 - Soft Skills -->
-<div class="bg-white rounded-lg shadow-md overflow-hidden">
+<div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 cursor-pointer">
 <div class="h-48 bg-gray-200" style="background-image: url('https://readdy.ai/api/search-image?query=professional%20diverse%20team%20in%20modern%20office%20setting%2C%20collaborative%20workshop%20environment%2C%20people%20discussing%20and%20presenting%20ideas%2C%20focus%20on%20communication%20and%20leadership%2C%20clean%20corporate%20training%20room%20with%20natural%20lighting%2C%20professional%20business%20attire&width=800&height=400&seq=8&orientation=landscape'); background-size: cover; background-position: center;"></div>
 <div class="p-6">
 <div class="flex justify-between items-center mb-4">
@@ -1437,17 +1476,17 @@ Learn more
 </div>
 </div>
 <div class="flex justify-between items-center">
-<span class="text-primary font-bold">ZMW 1,000</span>
+<span class="text-primary price font-bold">ZMW 1,000</span>
 <div class="flex gap-2">
-<button class="view-content-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">View Content</button>
+<!-- <button class="view-content-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">View Content</button> -->
 <button class="enroll-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">Enroll Now</button>
 </div>
 </div>
 </div>
 </div>
-<div class="mt-12 text-center">
+<!-- <div class="mt-12 text-center">
 <button class="bg-white border border-gray-300 text-gray-800 px-8 py-3 !rounded-button font-medium hover:bg-gray-50 transition whitespace-nowrap">View All Programs</button>
-</div>
+</div> -->
 </div>
 </section>
 <!-- Testimonials Section -->
@@ -1538,107 +1577,28 @@ Learn more
 <i class="ri-phone-line mr-2"></i>
 Schedule a Call
 </a>
-<button id="openBookingBtn" class="bg-transparent border border-white text-white px-8 py-3 !rounded-button font-medium hover:bg-white/10 transition whitespace-nowrap flex items-center justify-center">
-<i class="ri-calendar-line mr-2"></i>
-Book Appointment
+<button
+  id="openBookingBtn"
+  class="bg-transparent border border-white text-white px-8 py-3 !rounded-button font-medium hover:bg-white/10 transition whitespace-nowrap flex items-center justify-center"
+  onclick="Calendly.initPopupWidget({url: 'https://calendly.com/trendline02tc/30min'}); return false;"
+>
+  <i class="ri-calendar-line mr-2"></i>
+  Book Appointment
 </button>
-</div>
-</div>
-<!-- Booking Modal -->
-<div id="bookingModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
-<div class="flex items-center justify-center min-h-screen p-4">
-<div class="bg-white rounded-lg max-w-4xl w-full">
-<div class="p-6">
-<div class="flex justify-between items-start mb-6">
-<h3 class="text-2xl font-bold text-gray-900">Book a Consultation</h3>
-<button id="closeBookingModal" class="text-gray-400 hover:text-gray-600">
-<i class="ri-close-line ri-2x"></i>
-</button>
-</div>
-<div class="mb-6">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-<div>
-<div class="mb-6">
-<label class="block text-gray-700 mb-2">Select Date</label>
-<div class="calendar-container bg-white rounded-lg shadow-md p-6">
-<div class="calendar-header flex justify-between items-center mb-6">
-<button id="prevMonth" class="w-10 h-10 flex items-center justify-center text-gray-600 hover:text-primary hover:bg-gray-100 rounded-full transition">
-<i class="ri-arrow-left-s-line ri-lg"></i>
-</button>
-<h4 id="currentMonth" class="text-xl font-semibold text-gray-900"></h4>
-<button id="nextMonth" class="w-10 h-10 flex items-center justify-center text-gray-600 hover:text-primary hover:bg-gray-100 rounded-full transition">
-<i class="ri-arrow-right-s-line ri-lg"></i>
-</button>
-</div>
-<div class="calendar-weekdays grid grid-cols-7 gap-2 mb-4">
-<div class="text-center text-sm font-medium text-gray-600 py-2">Sun</div>
-<div class="text-center text-sm font-medium text-gray-600 py-2">Mon</div>
-<div class="text-center text-sm font-medium text-gray-600 py-2">Tue</div>
-<div class="text-center text-sm font-medium text-gray-600 py-2">Wed</div>
-<div class="text-center text-sm font-medium text-gray-600 py-2">Thu</div>
-<div class="text-center text-sm font-medium text-gray-600 py-2">Fri</div>
-<div class="text-center text-sm font-medium text-gray-600 py-2">Sat</div>
-</div>
-<div id="calendarDays" class="grid grid-cols-7 gap-2">
-</div>
-</div>
-<input type="hidden" id="bookingDate" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary">
-</div>
-<div class="mb-6">
-<label class="block text-gray-700 mb-2">Select Time</label>
-<select id="bookingTime" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary">
-<option value="">Choose a time slot</option>
-</select>
-</div>
-</div>
-<div>
-<div class="mb-4">
-<label class="block text-gray-700 mb-2">Your Name</label>
-<input type="text" id="bookingName" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary" placeholder="Enter your name">
-</div>
-<div class="mb-4">
-<label class="block text-gray-700 mb-2">Email</label>
-<input type="email" id="bookingEmail" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary" placeholder="Enter your email">
-</div>
-<div class="mb-4">
-<label class="block text-gray-700 mb-2">Phone</label>
-<input type="tel" id="bookingPhone" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary" placeholder="Enter your phone number">
-</div>
-</div>
-</div>
-<div class="mb-6">
-<label class="block text-gray-700 mb-2">Consultation Topic</label>
-<select id="bookingTopic" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary">
-<option value="">Select a topic</option>
-<option value="data-analytics">Data Analytics Training</option>
-<option value="bi-solutions">Business Intelligence Solutions</option>
-<option value="data-strategy">Data Strategy Development</option>
-<option value="team-development">Team Development</option>
-<option value="executive-coaching">Executive Coaching</option>
-</select>
-</div>
-<div class="mb-6">
-<label class="block text-gray-700 mb-2">Additional Notes</label>
-<textarea id="bookingNotes" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary" placeholder="Any specific requirements or questions?"></textarea>
-</div>
-</div>
-<button id="confirmBooking" class="w-full bg-primary text-white px-6 py-3 !rounded-button font-medium hover:bg-primary/90 transition whitespace-nowrap">Confirm Booking</button>
-</div>
-</div>
 </div>
 </div>
 </div>
 </section>
 <!-- Upcoming Events Section -->
-<section class="py-20 bg-gray-50">
+<!-- <section class="py-20 bg-gray-50">
 <div class="container mx-auto px-4">
 <div class="text-center mb-16">
 <h2 class="text-3xl font-bold text-gray-900 mb-4">Upcoming Events</h2>
 <p class="text-gray-600 max-w-2xl mx-auto">Join us at our upcoming events to enhance your data analytics skills and network with industry professionals.</p>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-<!-- Event Template - Copy and modify this template for each new event -->
-<!--
+Event Template - Copy and modify this template for each new event
+
 <div class="bg-white rounded-lg shadow-md overflow-hidden">
 <div class="h-48 bg-gray-200" style="background-image: url('[Insert Event Image URL]'); background-size: cover; background-position: center;"></div>
 <div class="p-6">
@@ -1658,13 +1618,13 @@ Book Appointment
 </div>
 </div>
 </div>
--->
+
 </div>
 <div class="text-center mt-12">
 <button class="bg-white border border-gray-300 text-gray-800 px-8 py-3 !rounded-button font-medium hover:bg-gray-50 transition whitespace-nowrap">View All Events</button>
 </div>
 </div>
-</section>
+</section> -->
 <!-- Contact Section -->
 <section id="contact" class="py-20">
 <div class="container mx-auto px-4">
@@ -1711,56 +1671,69 @@ Book Appointment
 </div>
 </div>
 <div class="flex space-x-4">
-<a href="https://linkedin.com/company-trendline-training-consultancy-ltd" target="_blank" class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition">
+<a href="https://www.linkedin.com/company/trendline-training-consultancy-ltd/posts/?feedView=all" target="_blank" class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition">
 <i class="ri-linkedin-fill"></i>
 </a>
-<a href="https://www.facebook.com/share/1ANvB7cJui/" target="_blank" class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition">
+<a href="https://www.facebook.com/share/1R3kZ4imU1/?mibextid=qi2Omg" target="_blank" class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition">
 <i class="ri-facebook-fill"></i>
 </a>
-<a href="#" class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition">
+<!-- <a href="#" class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition">
 <i class="ri-instagram-fill"></i>
-</a>
+</a> -->
 </div>
 </div>
 <div>
 <div class="bg-white p-8 rounded-lg shadow-md">
 <h3 class="text-xl font-bold text-gray-900 mb-6">Send Us a Message</h3>
-<form>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-<div>
-<label for="name" class="block text-gray-700 mb-2">Full Name</label>
-<input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary" placeholder="Your name">
-</div>
-<div>
-<label for="email" class="block text-gray-700 mb-2">Email Address</label>
-<input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary" placeholder="Your email">
-</div>
-<div>
-<label for="phone" class="block text-gray-700 mb-2">Phone Number</label>
-<input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary" placeholder="Your phone">
-</div>
-<div>
-<label for="company" class="block text-gray-700 mb-2">Company</label>
-<input type="text" id="company" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary" placeholder="Your company">
-</div>
-</div>
-<div class="mb-6">
-<label for="subject" class="block text-gray-700 mb-2">Subject</label>
-<input type="text" id="subject" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary" placeholder="Message subject">
-</div>
-<div class="mb-6">
-<label for="message" class="block text-gray-700 mb-2">Message</label>
-<textarea id="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary" placeholder="Your message"></textarea>
-</div>
-<button type="submit" class="w-full bg-primary text-white px-6 py-3 !rounded-button font-medium hover:bg-primary/90 transition whitespace-nowrap">Send Message</button>
+<form id="contactForm"  action="https://formspree.io/f/xrbqjogq"
+method="POST">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+    <div>
+      <label for="name" class="block text-gray-700 mb-2">Full Name</label>
+      <input type="text" id="name" name="fullName" class="w-full px-4 py-2 border border-gray-300 rounded" required placeholder="Your name">
+    </div>
+    <div>
+      <label for="email" class="block text-gray-700 mb-2">Email Address</label>
+      <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded" required placeholder="Your email">
+    </div>
+    <div>
+      <label for="phone" class="block text-gray-700 mb-2">Phone Number</label>
+      <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border border-gray-300 rounded" required placeholder="Your phone">
+    </div>
+    <div>
+      <label for="company" class="block text-gray-700 mb-2">Company</label>
+      <input type="text" id="company" name="company" class="w-full px-4 py-2 border border-gray-300 rounded" placeholder="Your company">
+    </div>
+  </div>
+  <div class="mb-6">
+    <label for="subject" class="block text-gray-700 mb-2">Subject</label>
+    <input type="text" id="subject" name="subject" class="w-full px-4 py-2 border border-gray-300 rounded" placeholder="Message subject">
+  </div>
+  <div class="mb-6">
+    <label for="message" class="block text-gray-700 mb-2">Message</label>
+    <textarea id="message" rows="5" name="message" class="w-full px-4 py-2 border border-gray-300 rounded" placeholder="Your message"></textarea>
+  </div>
+  <button type="submit" class="w-full bg-primary text-white px-6 py-3 !rounded-button font-medium hover:bg-primary/90 transition whitespace-nowrap">Send Message</button>
 </form>
+<!-- Modal template (hidden by default) -->
+<div id="modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center">
+  <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4 text-center">
+    <div id="modalIcon" class="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full">
+    </div>
+    <h3 id="modalTitle" class="text-xl font-bold text-gray-900 mb-2">Modal Title</h3>
+    <div id="modalContent" class="text-gray-600 mb-6 text-left">
+
+    </div>
+    <button id="modalClose" class="bg-blue-600 text-white px-6 py-2 rounded font-medium hover:bg-blue-700 transition">Close</button>
+  </div>
+</div>
 </div>
 </div>
 </div>
 </div>
 </section>
 <!-- Newsletter Section -->
-<section class="py-16 bg-gray-50">
+<!-- <section class="py-16 bg-gray-50">
 <div class="container mx-auto px-4">
 <div class="max-w-3xl mx-auto text-center">
 <h2 class="text-2xl font-bold text-gray-900 mb-4">Subscribe to Our Newsletter</h2>
@@ -1771,7 +1744,7 @@ Book Appointment
 </div>
 </div>
 </div>
-</section>
+</section> -->
 <!-- Footer -->
 <footer class="bg-gray-900 text-white pt-16 pb-8">
 <div class="container mx-auto px-4">
@@ -1786,15 +1759,15 @@ Book Appointment
 </div>
 <p class="text-gray-400 mb-6">Trendline Training & Consultancy provides expert-led corporate training and consultancy services that empower organizations to leverage data for strategic decision-making.</p>
 <div class="flex space-x-4">
-<a href="https://linkedin.com/company-trendline-training-consultancy-ltd" target="_blank" class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition">
+<a href="https://www.linkedin.com/company/trendline-training-consultancy-ltd/posts/?feedView=all" target="_blank" class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition">
 <i class="ri-linkedin-fill"></i>
 </a>
-<a href="#" class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition">
+<a href="https://www.facebook.com/share/1R3kZ4imU1/?mibextid=qi2Omg" class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition">
 <i class="ri-facebook-fill"></i>
 </a>
-<a href="#" class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition">
+<!-- <a href="#" class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition">
 <i class="ri-instagram-fill"></i>
-</a>
+</a> -->
 </div>
 </div>
 <div>
@@ -1804,22 +1777,22 @@ Book Appointment
 <li><a href="#services" class="text-gray-400 hover:text-white transition">Services</a></li>
 <li><a href="#about" class="text-gray-400 hover:text-white transition">About Us</a></li>
 <li><a href="#programs" class="text-gray-400 hover:text-white transition">Training Programs</a></li>
-<li><a href="#" class="text-gray-400 hover:text-white transition">Case Studies</a></li>
-<li><a href="#" class="text-gray-400 hover:text-white transition">Blog</a></li>
+<!-- <li><a href="#" class="text-gray-400 hover:text-white transition">Case Studies</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition">Blog</a></li> -->
 <li><a href="#contact" class="text-gray-400 hover:text-white transition">Contact</a></li>
 </ul>
 </div>
 <div>
 <h3 class="text-lg font-bold mb-6">Training Programs</h3>
 <ul class="space-y-3">
-<li><a href="#" class="text-gray-400 hover:text-white transition">Data Analytics - Beginner</a></li>
-<li><a href="#" class="text-gray-400 hover:text-white transition">Data Analytics - Intermediate</a></li>
-<li><a href="#" class="text-gray-400 hover:text-white transition">Data Analytics - Advanced</a></li>
-<li><a href="#" class="text-gray-400 hover:text-white transition">Power BI Mastery</a></li>
-<li><a href="#" class="text-gray-400 hover:text-white transition">SQL for Data Analysis</a></li>
-<li><a href="#" class="text-gray-400 hover:text-white transition">Data Visualization Essentials</a></li>
-<li><a href="#" class="text-gray-400 hover:text-white transition">Data Storytelling Mastery</a></li>
-<li><a href="#" class="text-gray-400 hover:text-white transition">Soft Skills for Data Professionals</a></li>
+<li><a href="#programs" class="text-gray-400 hover:text-white transition">Data Analytics - Beginner</a></li>
+<li><a href="#programs" class="text-gray-400 hover:text-white transition">Data Analytics - Intermediate</a></li>
+<li><a href="#programs" class="text-gray-400 hover:text-white transition">Data Analytics - Advanced</a></li>
+<li><a href="#programs" class="text-gray-400 hover:text-white transition">Power BI Mastery</a></li>
+<li><a href="#programs" class="text-gray-400 hover:text-white transition">SQL for Data Analysis</a></li>
+<li><a href="#programs" class="text-gray-400 hover:text-white transition">Data Visualization Essentials</a></li>
+<li><a href="#programs" class="text-gray-400 hover:text-white transition">Data Storytelling Mastery</a></li>
+<li><a href="#programs" class="text-gray-400 hover:text-white transition">Soft Skills for Data Professionals</a></li>
 </ul>
 </div>
 <div>
@@ -1870,7 +1843,8 @@ Book Appointment
 <i class="ri-close-line ri-2x"></i>
 </button>
 </div>
-<form id="enrollmentForm" action="mailto:info@trendlinec.com" method="POST" enctype="text/plain">
+
+<form id="enrollmentForm" action="https://formspree.io/f/mnndwgrz" method="POST">
 <input type="hidden" id="programName" name="programName">
 <input type="hidden" id="programPrice" name="programPrice">
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
@@ -1904,440 +1878,304 @@ Book Appointment
 </div>
 </div>
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-// Course Content Toggle Functionality
-document.querySelectorAll('.view-content-btn').forEach(btn => {
-btn.addEventListener('click', () => {
-const modal = btn.closest('.p-6').querySelector('.course-content-modal');
-if (modal) {
-modal.style.opacity = '0';
-modal.classList.remove('hidden');
-document.body.style.overflow = 'hidden';
-requestAnimationFrame(() => {
-modal.style.transition = 'opacity 0.3s ease-in-out';
-modal.style.opacity = '1';
+  document.addEventListener("DOMContentLoaded", function () {
+  // Course Content Modal Toggle
+  document.querySelectorAll(".view-content-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const modal = btn.closest(".p-6").querySelector(".course-content-modal");
+      if (modal) {
+        modal.style.opacity = "0";
+        modal.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+        requestAnimationFrame(() => {
+          modal.style.transition = "opacity 0.3s ease-in-out";
+          modal.style.opacity = "1";
+        });
+      }
+    });
+  });
+
+  document.querySelectorAll(".close-content-modal").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const modal = btn.closest(".course-content-modal");
+      modal.style.opacity = "0";
+      setTimeout(() => {
+        modal.classList.add("hidden");
+        document.body.style.overflow = "auto";
+      }, 300);
+    });
+  });
+
+  document.querySelectorAll(".course-content-modal").forEach((modal) => {
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.style.opacity = "0";
+        setTimeout(() => {
+          modal.classList.add("hidden");
+          document.body.style.overflow = "auto";
+        }, 300);
+      }
+    });
+  });
+
+  //mobile nav
+  const menuToggle = document.getElementById("menuToggle");
+  const mobileMenu = document.getElementById("mobileMenu");
+  const overlay = document.getElementById("overlay");
+
+  function openMenu() {
+    mobileMenu.classList.remove("hidden");
+    overlay.classList.remove("hidden");
+    menuToggle.classList.add("open");
+    document.body.classList.add("overflow-hidden");
+  }
+
+  function closeMenu() {
+    mobileMenu.classList.add("hidden");
+    overlay.classList.add("hidden");
+    menuToggle.classList.remove("open");
+    document.body.classList.remove("overflow-hidden");
+  }
+
+  menuToggle.addEventListener("click", () => {
+    const isOpen = !mobileMenu.classList.contains("hidden");
+    isOpen ? closeMenu() : openMenu();
+  });
+
+  document.querySelectorAll("#mobileMenu a").forEach((link) => {
+    link.addEventListener("click", () => {
+      closeMenu();
+    });
+  });
+
+  overlay.addEventListener("click", closeMenu);
+
+  // Services Modal
+  const exploreServicesBtn = document.getElementById("exploreServicesBtn");
+  const servicesModal = document.getElementById("servicesModal");
+  const closeServicesModal = document.getElementById("closeServicesModal");
+
+  if (exploreServicesBtn && servicesModal && closeServicesModal) {
+    exploreServicesBtn.addEventListener("click", () => {
+      servicesModal.style.opacity = "0";
+      servicesModal.classList.remove("hidden");
+      document.body.style.overflow = "hidden";
+      requestAnimationFrame(() => {
+        servicesModal.style.transition = "opacity 0.3s ease-in-out";
+        servicesModal.style.opacity = "1";
+      });
+    });
+
+    const closeModal = () => {
+      servicesModal.style.opacity = "0";
+      setTimeout(() => {
+        servicesModal.classList.add("hidden");
+        document.body.style.overflow = "auto";
+      }, 300);
+    };
+
+    closeServicesModal.addEventListener("click", closeModal);
+    servicesModal.addEventListener("click", (e) => {
+      if (e.target === servicesModal) closeModal();
+    });
+
+    servicesModal
+      .querySelector(".bg-white")
+      ?.addEventListener("click", (e) => e.stopPropagation());
+  }
+
+  // Event Registration Modal
+  document.querySelectorAll(".register-event-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const eventCard = btn.closest(".rounded-lg");
+      const eventName = eventCard.querySelector("h3").textContent;
+      const eventDate = eventCard.querySelector(".text-gray-500").textContent;
+      const eventPrice = eventCard.querySelector(".text-primary").textContent;
+
+      const successModal = document.createElement("div");
+      successModal.className =
+        "fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center";
+      successModal.innerHTML = `
+        <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4">
+          <div class="text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="ri-check-line text-green-500 ri-2x"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Registration Successful!</h3>
+            <p class="text-gray-600 mb-6">Thank you for registering for ${eventName}. We'll send you a confirmation email.</p>
+            <button class="bg-primary text-white px-6 py-2 !rounded-button font-medium hover:bg-primary/90 transition">Close</button>
+          </div>
+        </div>`;
+      document.body.appendChild(successModal);
+      successModal.querySelector("button").onclick = () =>
+        successModal.remove();
+    });
+  });
+
+  // Enrollment Modal
+  const enrollmentModal = document.getElementById("enrollmentModal");
+  const closeEnrollmentModal = document.getElementById("closeEnrollmentModal");
+  const enrollmentForm = document.getElementById("enrollmentForm");
+  const programNameInput = document.getElementById("programName");
+  const programPriceInput = document.getElementById("programPrice");
+
+  document.querySelectorAll(".enroll-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const card = btn.closest(".service-card");
+      const programName = card.querySelector("h3").textContent;
+      const programPrice = card.querySelector(".price").textContent;
+      programNameInput.value = programName;
+      programPriceInput.value = programPrice;
+      enrollmentModal.classList.remove("hidden");
+      document.body.style.overflow = "hidden";
+    });
+  });
+
+  if (closeEnrollmentModal) {
+    closeEnrollmentModal.addEventListener("click", () => {
+      enrollmentModal.classList.add("hidden");
+      document.body.style.overflow = "auto";
+    });
+  }
+
+  enrollmentModal.addEventListener("click", (e) => {
+    if (e.target === enrollmentModal) {
+      enrollmentModal.classList.add("hidden");
+      document.body.style.overflow = "auto";
+    }
+  });
+
+  const form = document.getElementById("enrollmentForm");
+
+  async function handleEnrollmentSubmit(event) {
+    event.preventDefault();
+    const status = document.getElementById("enrollment-status");
+    const data = new FormData(form);
+
+    fetch(form.action, {
+      method: form.method,
+      body: data,
+      headers: {
+        Accept: "application/json",
+      },
+    })
+      .then((response) => {
+        if (response.ok) {
+          const successModal = document.createElement("div");
+          successModal.className =
+            "fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center";
+          successModal.innerHTML = `
+				    <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4">
+				      <div class="text-center">
+				        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+				          <i class="ri-check-line text-green-500 ri-2x"></i>
+				        </div>
+				        <h3 class="text-xl font-bold text-gray-900 mb-2">Enrollment Submitted!</h3>
+				        <p class="text-gray-600 mb-6">Thank you for enrolling. We'll contact you shortly.</p>
+				        <button class="bg-primary text-white px-6 py-2 !rounded-button font-medium hover:bg-primary/90 transition">Close</button>
+				      </div>
+				    </div>
+				  `;
+          document.body.appendChild(successModal);
+          successModal.querySelector("button").onclick = () => {
+            successModal.remove();
+            enrollmentModal.classList.add("hidden");
+            document.body.style.overflow = "auto";
+          };
+          form.reset();
+        } else {
+          response.json().then((data) => {
+            if (Object.hasOwn(data, "errors")) {
+              status.innerHTML = data["errors"]
+                .map((error) => error["message"])
+                .join(", ");
+            } else {
+              status.innerHTML = "There was a problem submitting your form.";
+            }
+          });
+        }
+      })
+      .catch((error) => {
+        status.innerHTML = "There was a problem submitting your form.";
+      });
+  }
+
+  form.addEventListener("submit", handleEnrollmentSubmit);
 });
-}
+
+//Enquire Modal
+const form = document.getElementById("contactForm");
+const modal = document.getElementById("modal");
+const modalTitle = document.getElementById("modalTitle");
+const modalContent = document.getElementById("modalContent");
+const modalIcon = document.getElementById("modalIcon");
+const modalClose = document.getElementById("modalClose");
+
+modalClose.addEventListener("click", () => modal.classList.add("hidden"));
+
+form.addEventListener("submit", async function (e) {
+  e.preventDefault();
+
+  const fields = {
+    name: form.name.value.trim(),
+    email: form.email.value.trim(),
+    phone: form.phone.value.trim(),
+    company: form.company.value.trim(),
+    subject: form.subject.value.trim(),
+    message: form.message.value.trim(),
+  };
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const errors = [];
+
+  if (!fields.name) errors.push("Full Name is required.");
+  if (!fields.email || !emailRegex.test(fields.email))
+    errors.push("A valid Email Address is required.");
+  if (!fields.phone) errors.push("Phone Number is required.");
+  if (!fields.subject) errors.push("Subject is required.");
+  if (!fields.message) errors.push("Message is required.");
+
+  if (errors.length > 0) {
+    modalTitle.textContent = "Please add the following:";
+    modalContent.innerHTML = `<ul class="list-disc pl-5 space-y-1">${errors
+      .map((e) => `<li>${e}</li>`)
+      .join("")}</ul>`;
+    modalIcon.innerHTML = `<i class="ri-error-warning-line text-red-500 text-3xl"></i>`;
+    modalIcon.className =
+      "w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4";
+    modal.classList.remove("hidden");
+    return;
+  }
+
+  try {
+    const formData = new FormData(form);
+    const response = await fetch(form.action || window.location.pathname, {
+      method: "POST",
+      body: formData,
+      headers: { Accept: "application/json" },
+    });
+
+    if (response.ok) {
+      modalTitle.textContent = "Message Sent!";
+      modalContent.innerHTML = `<p>Thanks for getting in touch. We’ll get back to you soon.</p>`;
+      modalIcon.innerHTML = `<i class="ri-check-line text-green-600 text-3xl"></i>`;
+      modalIcon.className =
+        "w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4";
+      modal.classList.remove("hidden");
+      form.reset();
+    } else {
+      throw new Error("Server error");
+    }
+  } catch (err) {
+    modalTitle.textContent = "Something went wrong";
+    modalContent.innerHTML = `<p>There was an error sending your message. Please try again later.</p>`;
+    modalIcon.innerHTML = `<i class="ri-error-warning-line text-red-500 text-3xl"></i>`;
+    modalIcon.className =
+      "w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4";
+    modal.classList.remove("hidden");
+  }
 });
-});
-document.querySelectorAll('.close-content-modal').forEach(btn => {
-btn.addEventListener('click', () => {
-const modal = btn.closest('.course-content-modal');
-modal.style.opacity = '0';
-setTimeout(() => {
-modal.classList.add('hidden');
-document.body.style.overflow = 'auto';
-}, 300);
-});
-});
-document.querySelectorAll('.course-content-modal').forEach(modal => {
-modal.addEventListener('click', (e) => {
-if (e.target === modal) {
-modal.style.opacity = '0';
-setTimeout(() => {
-modal.classList.add('hidden');
-document.body.style.overflow = 'auto';
-}, 300);
-}
-});
-});
-const bookingModal = document.getElementById('bookingModal');
-const openBookingBtn2 = document.getElementById('openBookingBtn2');
-if (openBookingBtn2 && bookingModal) {
-openBookingBtn2.addEventListener('click', () => {
-bookingModal.style.opacity = '0';
-bookingModal.classList.remove('hidden');
-document.body.style.overflow = 'hidden';
-requestAnimationFrame(() => {
-bookingModal.style.transition = 'opacity 0.3s ease-in-out';
-bookingModal.style.opacity = '1';
-});
-// Initialize calendar
-currentDate = new Date();
-renderCalendar();
-// Reset form fields
-document.getElementById('bookingName').value = '';
-document.getElementById('bookingEmail').value = '';
-document.getElementById('bookingPhone').value = '';
-document.getElementById('bookingTopic').value = '';
-document.getElementById('bookingNotes').value = '';
-document.getElementById('bookingTime').innerHTML = '<option value="">Choose a time slot</option>';
-});
-}
-// Services Modal
-const exploreServicesBtn = document.getElementById('exploreServicesBtn');
-const servicesModal = document.getElementById('servicesModal');
-const closeServicesModal = document.getElementById('closeServicesModal');
-if (exploreServicesBtn && servicesModal && closeServicesModal) {
-exploreServicesBtn.addEventListener('click', () => {
-servicesModal.style.opacity = '0';
-servicesModal.classList.remove('hidden');
-document.body.style.overflow = 'hidden';
-requestAnimationFrame(() => {
-servicesModal.style.transition = 'opacity 0.3s ease-in-out';
-servicesModal.style.opacity = '1';
-});
-});
-const closeModal = () => {
-servicesModal.style.opacity = '0';
-setTimeout(() => {
-servicesModal.classList.add('hidden');
-document.body.style.overflow = 'auto';
-}, 300);
-};
-closeServicesModal.addEventListener('click', closeModal);
-servicesModal.addEventListener('click', (e) => {
-if (e.target === servicesModal) {
-closeModal();
-}
-});
-// Prevent modal content clicks from closing the modal
-servicesModal.querySelector('.bg-white').addEventListener('click', (e) => {
-e.stopPropagation();
-});
-}
-// Event Registration Modal
-document.querySelectorAll('.register-event-btn').forEach(btn => {
-btn.addEventListener('click', () => {
-const eventCard = btn.closest('.rounded-lg');
-const eventName = eventCard.querySelector('h3').textContent;
-const eventDate = eventCard.querySelector('.text-gray-500').textContent;
-const eventPrice = eventCard.querySelector('.text-primary').textContent;
-const successModal = document.createElement('div');
-successModal.className = 'fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center';
-successModal.innerHTML = `
-<div class="bg-white rounded-lg p-8 max-w-md w-full mx-4">
-<div class="text-center">
-<div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-<i class="ri-check-line text-green-500 ri-2x"></i>
-</div>
-<h3 class="text-xl font-bold text-gray-900 mb-2">Registration Successful!</h3>
-<p class="text-gray-600 mb-6">Thank you for registering for ${eventName}. We'll send you a confirmation email with event details.</p>
-<button class="bg-primary text-white px-6 py-2 !rounded-button font-medium hover:bg-primary/90 transition whitespace-nowrap">Close</button>
-</div>
-</div>
-`;
-document.body.appendChild(successModal);
-successModal.querySelector('button').onclick = () => {
-successModal.remove();
-};
-});
-});
-const enrollmentModal = document.getElementById('enrollmentModal');
-const closeEnrollmentModal = document.getElementById('closeEnrollmentModal');
-const enrollmentForm = document.getElementById('enrollmentForm');
-const programNameInput = document.getElementById('programName');
-const programPriceInput = document.getElementById('programPrice');
-document.querySelectorAll('.enroll-btn').forEach(btn => {
-btn.addEventListener('click', () => {
-const card = btn.closest('.service-card');
-const programName = card.querySelector('h3').textContent;
-const programPrice = card.querySelector('.text-primary').textContent;
-programNameInput.value = programName;
-programPriceInput.value = programPrice;
-enrollmentModal.classList.remove('hidden');
-document.body.style.overflow = 'hidden';
-});
-});
-if (closeEnrollmentModal) {
-closeEnrollmentModal.addEventListener('click', () => {
-enrollmentModal.classList.add('hidden');
-document.body.style.overflow = 'auto';
-});
-}
-enrollmentModal.addEventListener('click', (e) => {
-if (e.target === enrollmentModal) {
-enrollmentModal.classList.add('hidden');
-document.body.style.overflow = 'auto';
-}
-});
-enrollmentForm.addEventListener('submit', (e) => {
-e.preventDefault();
-const formData = new FormData(enrollmentForm);
-const data = Object.fromEntries(formData);
-const emailBody = `
-Program Name: ${data.programName}
-Program Price: ${data.programPrice}
-Full Name: ${data.fullName}
-Email: ${data.email}
-Phone: ${data.phone}
-Company: ${data.company}
-Notes: ${data.notes}
-`;
-const mailtoLink = `mailto:info@trendlinec.com?subject=Program Enrollment - ${data.programName}&body=${encodeURIComponent(emailBody)}`;
-window.location.href = mailtoLink;
-const successModal = document.createElement('div');
-successModal.className = 'fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center';
-successModal.innerHTML = `
-if (response.ok) {
-const successModal = document.createElement('div');
-successModal.className = 'fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center';
-successModal.innerHTML = `
-<div class="bg-white rounded-lg p-8 max-w-md w-full mx-4">
-<div class="text-center">
-<div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-<i class="ri-check-line text-green-500 ri-2x"></i>
-</div>
-<h3 class="text-xl font-bold text-gray-900 mb-2">Enrollment Submitted!</h3>
-<p class="text-gray-600 mb-6">Thank you for enrolling in our program. We'll contact you shortly with further details.</p>
-<button class="bg-primary text-white px-6 py-2 !rounded-button font-medium hover:bg-primary/90 transition whitespace-nowrap">Close</button>
-</div>
-</div>
-`;
-document.body.appendChild(successModal);
-successModal.querySelector('button').onclick = () => {
-successModal.remove();
-enrollmentModal.classList.add('hidden');
-document.body.style.overflow = 'auto';
-enrollmentForm.reset();
-};
-} else {
-throw new Error('Submission failed');
-}
-} catch (error) {
-const errorDiv = document.createElement('div');
-errorDiv.className = 'text-red-500 text-sm mt-2';
-errorDiv.textContent = 'There was an error submitting your enrollment. Please try again.';
-enrollmentForm.appendChild(errorDiv);
-setTimeout(() => errorDiv.remove(), 3000);
-}
-});
-// Remove this block as we've moved the functionality to the top
-const zambian_holidays_2025 = [
-'2025-01-01', // New Year's Day
-'2025-03-08', // International Women's Day
-'2025-03-12', // Youth Day
-'2025-04-18', // Good Friday
-'2025-04-21', // Easter Monday
-'2025-05-01', // Labour Day
-'2025-05-25', // Africa Freedom Day
-'2025-07-06', // Heroes Day
-'2025-07-07', // Unity Day
-'2025-08-04', // Farmers Day
-'2025-10-18', // National Prayer Day
-'2025-10-24', // Independence Day
-'2025-12-25', // Christmas Day
-];
-const bookingModal = document.getElementById('bookingModal');
-const openBookingBtn = document.getElementById('openBookingBtn');
-const closeBookingModal = document.getElementById('closeBookingModal');
-const bookingDate = document.getElementById('bookingDate');
-const bookingTime = document.getElementById('bookingTime');
-const confirmBooking = document.getElementById('confirmBooking');
-const prevMonthBtn = document.getElementById('prevMonth');
-const nextMonthBtn = document.getElementById('nextMonth');
-const currentMonthElement = document.getElementById('currentMonth');
-const calendarDays = document.getElementById('calendarDays');
-let currentDate = new Date();
-function renderCalendar() {
-const firstDay = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
-const lastDay = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0);
-const startingDay = firstDay.getDay();
-const monthLength = lastDay.getDate();
-currentMonthElement.textContent = firstDay.toLocaleString('default', { month: 'long', year: 'numeric' });
-calendarDays.innerHTML = '';
-// Add empty cells for days before the first day of the month
-for (let i = 0; i < startingDay; i++) {
-const emptyDay = document.createElement('div');
-emptyDay.className = 'h-12 w-12 flex items-center justify-center text-gray-400';
-calendarDays.appendChild(emptyDay);
-}
-// Add days of the month
-for (let day = 1; day <= monthLength; day++) {
-const dateCell = document.createElement('div');
-const currentDateStr = `${currentDate.getFullYear()}-${(currentDate.getMonth() + 1).toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
-const isWeekendDay = new Date(currentDateStr).getDay() === 0 || new Date(currentDateStr).getDay() === 6;
-const isHolidayDay = isHoliday(currentDateStr);
-const isPastDate = new Date(currentDateStr) < new Date().setHours(0,0,0,0);
-dateCell.className = `h-12 w-12 flex items-center justify-center rounded-full cursor-pointer transition-all ${
-isWeekendDay || isHolidayDay || isPastDate ? 'text-gray-400 cursor-not-allowed bg-gray-50' : 'hover:bg-primary hover:text-white hover:shadow-md'
-}`;
-if (!isWeekendDay && !isHolidayDay && !isPastDate) {
-dateCell.addEventListener('click', () => {
-document.querySelectorAll('#calendarDays .selected').forEach(el => el.classList.remove('selected', 'bg-primary', 'text-white'));
-dateCell.classList.add('selected', 'bg-primary', 'text-white');
-bookingDate.value = currentDateStr;
-updateTimeSlots();
-});
-}
-dateCell.textContent = day;
-calendarDays.appendChild(dateCell);
-}
-}
-if (prevMonthBtn && nextMonthBtn) {
-prevMonthBtn.addEventListener('click', () => {
-currentDate.setMonth(currentDate.getMonth() - 1);
-renderCalendar();
-});
-nextMonthBtn.addEventListener('click', () => {
-currentDate.setMonth(currentDate.getMonth() + 1);
-renderCalendar();
-});
-}
-function generateTimeSlots() {
-const slots = [];
-for (let hour = 9; hour < 17; hour++) {
-slots.push(`${hour.toString().padStart(2, '0')}:00`);
-slots.push(`${hour.toString().padStart(2, '0')}:30`);
-}
-return slots;
-}
-function isWeekend(date) {
-const day = new Date(date).getDay();
-return day === 0 || day === 6;
-}
-function isHoliday(date) {
-return zambian_holidays_2025.includes(date);
-}
-function updateTimeSlots() {
-const selectedDate = bookingDate.value;
-bookingTime.innerHTML = '<option value="">Choose a time slot</option>';
-if (selectedDate && !isWeekend(selectedDate) && !isHoliday(selectedDate)) {
-const timeSlots = generateTimeSlots();
-timeSlots.forEach(slot => {
-const option = document.createElement('option');
-option.value = slot;
-option.textContent = slot;
-bookingTime.appendChild(option);
-});
-}
-}
-if (openBookingBtn && bookingModal && closeBookingModal) {
-openBookingBtn.addEventListener('click', () => {
-bookingModal.style.opacity = '0';
-bookingModal.classList.remove('hidden');
-document.body.style.overflow = 'hidden';
-requestAnimationFrame(() => {
-bookingModal.style.transition = 'opacity 0.3s ease-in-out';
-bookingModal.style.opacity = '1';
-});
-// Initialize calendar
-currentDate = new Date();
-renderCalendar();
-// Reset form fields
-document.getElementById('bookingName').value = '';
-document.getElementById('bookingEmail').value = '';
-document.getElementById('bookingPhone').value = '';
-document.getElementById('bookingTopic').value = '';
-document.getElementById('bookingNotes').value = '';
-document.getElementById('bookingTime').innerHTML = '<option value="">Choose a time slot</option>';
-});
-closeBookingModal.addEventListener('click', () => {
-bookingModal.classList.add('hidden');
-document.body.style.overflow = 'auto';
-});
-bookingModal.addEventListener('click', (e) => {
-if (e.target === bookingModal) {
-bookingModal.classList.add('hidden');
-document.body.style.overflow = 'auto';
-}
-});
-}
-if (bookingDate) {
-bookingDate.addEventListener('change', updateTimeSlots);
-}
-if (confirmBooking) {
-confirmBooking.addEventListener('click', () => {
-const name = document.getElementById('bookingName').value;
-const email = document.getElementById('bookingEmail').value;
-const phone = document.getElementById('bookingPhone').value;
-const date = bookingDate.value;
-const time = bookingTime.value;
-const topic = document.getElementById('bookingTopic').value;
-if (!name || !email || !phone || !date || !time || !topic) {
-const errorDiv = document.createElement('div');
-errorDiv.className = 'text-red-500 text-sm mt-2';
-errorDiv.textContent = 'Please fill in all required fields';
-confirmBooking.parentNode.insertBefore(errorDiv, confirmBooking.nextSibling);
-setTimeout(() => errorDiv.remove(), 3000);
-return;
-}
-const successModal = document.createElement('div');
-successModal.className = 'fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center';
-successModal.innerHTML = `
-<div class="bg-white rounded-lg p-8 max-w-md w-full mx-4">
-<div class="text-center">
-<div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-<i class="ri-check-line text-green-500 ri-2x"></i>
-</div>
-<h3 class="text-xl font-bold text-gray-900 mb-2">Booking Confirmed!</h3>
-<p class="text-gray-600 mb-6">Your consultation has been scheduled for ${date} at ${time}. We'll send you a confirmation email shortly.</p>
-<button class="bg-primary text-white px-6 py-2 !rounded-button font-medium hover:bg-primary/90 transition whitespace-nowrap">Close</button>
-</div>
-</div>
-`;
-document.body.appendChild(successModal);
-successModal.querySelector('button').onclick = () => {
-successModal.remove();
-bookingModal.classList.add('hidden');
-document.body.style.overflow = 'auto';
-};
-});
-}
-// Service Card Learn More Functionality
-document.querySelectorAll('.learn-more-btn').forEach(btn => {
-btn.addEventListener('click', function() {
-const details = this.parentElement.querySelector('.service-details');
-if (details.classList.contains('hidden')) {
-details.classList.remove('hidden');
-this.innerHTML = 'Show less <i class="ri-arrow-up-line ml-2"></i>';
-} else {
-details.classList.add('hidden');
-this.innerHTML = 'Learn more <i class="ri-arrow-right-line ml-2"></i>';
-}
-});
-});
-// Learn More Modal Functionality
-const learnMoreBtn = document.getElementById('learnMoreBtn');
-const learnMoreModal = document.getElementById('learnMoreModal');
-const closeModal = document.getElementById('closeModal');
-if (learnMoreBtn && learnMoreModal && closeModal) {
-learnMoreBtn.addEventListener('click', () => {
-learnMoreModal.style.opacity = '0';
-learnMoreModal.classList.remove('hidden');
-document.body.style.overflow = 'hidden';
-requestAnimationFrame(() => {
-learnMoreModal.style.transition = 'opacity 0.3s ease-in-out';
-learnMoreModal.style.opacity = '1';
-});
-});
-const closeLearnMoreModal = () => {
-learnMoreModal.style.opacity = '0';
-setTimeout(() => {
-learnMoreModal.classList.add('hidden');
-document.body.style.overflow = 'auto';
-}, 300);
-};
-closeModal.addEventListener('click', closeLearnMoreModal);
-learnMoreModal.addEventListener('click', (e) => {
-if (e.target === learnMoreModal) {
-closeLearnMoreModal();
-}
-});
-// Prevent modal content clicks from closing the modal
-learnMoreModal.querySelector('.bg-white').addEventListener('click', (e) => {
-e.stopPropagation();
-});
-}
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-anchor.addEventListener('click', function(e) {
-e.preventDefault();
-const targetId = this.getAttribute('href');
-if (targetId === '#') return;
-const targetElement = document.querySelector(targetId);
-if (targetElement) {
-const headerOffset = 80;
-const elementPosition = targetElement.getBoundingClientRect().top;
-const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-window.scrollTo({
-top: offsetPosition,
-behavior: 'smooth'
-});
-}
-});
-});
-});
+
 </script>
 </body>
 </html>
