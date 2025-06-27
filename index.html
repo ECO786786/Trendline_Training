@@ -737,767 +737,212 @@ html {
 <div class="container mx-auto px-4">
 <div class="text-center mb-16">
 <h2 class="text-3xl font-bold text-gray-900 mb-4">Our Training Programs</h2>
-<p class="text-gray-600 max-w-2xl mx-auto">Discover our comprehensive range of training programs designed to enhance your organization's data capabilities and strategic decision-making.</p>
+<p class="text-gray-600 max-w-2xl mx-auto mb-4">Discover our comprehensive range of training programs designed to enhance your organization's data capabilities and strategic decision-making.</p>
+ <div class="space-x-2">
+     <button id="btn-individuals" class="bg-primary text-white px-4 py-2 rounded font-medium hover:bg-primary/90 transition whitespace-nowrap">Individuals</button>
+<button id="btn-corporate" class="bg-gray-300 text-black px-4 py-2 rounded font-medium hover:bg-primary/90 transition whitespace-nowrap">Corporate</button>
+    </div>
 </div>
+
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 <!-- Program 1 - Beginner -->
-
-<div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 cursor-pointer">
-<div class="h-48 bg-gray-200" style="background-image: url('https://readdy.ai/api/search-image?query=professional%20black%20data%20analyst%20teaching%20in%20modern%20classroom%2C%20multiple%20computer%20screens%20displaying%20excel%20spreadsheets%20and%20basic%20charts%2C%20bright%20welcoming%20learning%20environment%2C%20students%20engaged%20in%20hands-on%20training%2C%20clean%20corporate%20setting&width=800&height=400&seq=3&orientation=landscape'); background-size: cover; background-position: center;"></div>
-<div class="p-6">
-<div class="flex justify-between items-center mb-4">
-<span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">Beginner</span>
-<span class="text-gray-500 text-sm">1 Week</span>
+<div data-course-id="1" class="course-card service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 cursor-pointer max-w-md mx-auto">
+  <div class="h-48 bg-gray-200" style="background-image: url('https://readdy.ai/api/search-image?query=professional%20black%20data%20analyst%20teaching%20in%20modern%20classroom%2C%20multiple%20computer%20screens%20displaying%20excel%20spreadsheets%20and%20basic%20charts%2C%20bright%20welcoming%20learning%20environment%2C%20students%20engaged%20in%20hands-on%20training%2C%20clean%20corporate%20setting&width=800&height=400&seq=3&orientation=landscape'); background-size: cover; background-position: center;"></div>
+  <div class="p-6">
+    <div class="flex justify-between items-center mb-4">
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">Beginner</span>
+      <span class="text-gray-500 text-sm root-text-check">Virtual</span>
+      <span class="text-gray-500 text-sm">1 Week</span>
+    </div>
+    <h3 class="text-xl font-bold text-gray-900 mb-2">Data Analytics Fundamentals</h3>
+    <p class="text-gray-600 mb-4">Master the essentials of data analysis through hands-on training in Excel, basic statistics, and data visualization fundamentals. Perfect for beginners starting their analytics journey.</p>
+    <div class="flex justify-between items-center">
+      <span class="text-primary price font-bold inline-block mr-[10px]">Loading price...</span>
+      <div class="flex gap-2">
+        <button data-course-id="1" class="view-content-btn bg-primary text-white px-4 py-2 rounded text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">View Content</button>
+        <button class="enroll-btn bg-primary text-white px-4 py-2 rounded text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">Enroll Now</button>
+      </div>
+    </div>
+  </div>
 </div>
-<h3 class="text-xl font-bold text-gray-900 mb-2">Data Analytics Fundamentals</h3>
-<p class="text-gray-600 mb-4">Master the essentials of data analysis through hands-on training in Excel, basic statistics, and data visualization fundamentals. Perfect for beginners starting their analytics journey.</p>
-<div class="flex justify-between items-center">
-<span class="text-primary price font-bold">ZMW 1,500</span>
-<div class="flex gap-2">
-<!-- <button class="view-content-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">View Content</button> -->
-<button class="enroll-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">Enroll Now</button>
+<!-- Modal -->
+<div class="course-content-modal hidden opacity-0 fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center transition-opacity duration-300 z-50">
+  <div class="modal-content bg-white p-6 rounded max-w-lg max-h-[80vh] overflow-y-auto relative">
+  
+  </div>
 </div>
-</div>
-</div>
-<!-- Course Content Modal -->
-<div class="course-content-modal fixed inset-0 bg-black bg-opacity-50 z-50 hidden opacity-0 transition-opacity duration-300">
-<div class="flex items-center justify-center min-h-screen p-4">
-<div class="bg-white rounded-lg max-w-2xl w-full">
-<div class="p-6">
-<div class="flex justify-between items-start mb-6">
-<h3 class="text-2xl font-bold text-gray-900">Course Content</h3>
-<button class="close-content-modal text-gray-400 hover:text-gray-600">
-<i class="ri-close-line ri-2x"></i>
-</button>
-</div>
-<div class="space-y-6">
-<div>
-<h4 class="font-bold text-gray-900 mb-3">Course Overview</h4>
-<p class="text-gray-600">A comprehensive introduction to data analytics fundamentals, designed for beginners looking to start their journey in data analysis.</p>
-</div>
-<div>
-<h4 class="font-bold text-gray-900 mb-3">What You'll Learn</h4>
-<div class="space-y-3">
-<div class="flex items-start">
-<i class="ri-check-line text-primary mt-1 mr-2"></i>
-<div>
-<p class="font-medium text-gray-800">Excel Data Analysis & Pivot Tables</p>
-<p class="text-sm text-gray-600">Master data analysis techniques using Excel, create dynamic pivot tables, and generate insightful business reports</p>
-</div>
-</div>
-<div class="flex items-start">
-<i class="ri-check-line text-primary mt-1 mr-2"></i>
-<div>
-<p class="font-medium text-gray-800">Statistical Concepts & Data Cleaning</p>
-<p class="text-sm text-gray-600">Learn fundamental statistical concepts and techniques for preparing and cleaning data for analysis</p>
-</div>
-</div>
-<div class="flex items-start">
-<i class="ri-check-line text-primary mt-1 mr-2"></i>
-<div>
-<p class="font-medium text-gray-800">Data Visualization & Dashboards</p>
-<p class="text-sm text-gray-600">Create effective visualizations and interactive dashboards to communicate insights</p>
-</div>
-</div>
-<div class="flex items-start">
-<i class="ri-check-line text-primary mt-1 mr-2"></i>
-<div>
-<p class="font-medium text-gray-800">Data Collection & Organization</p>
-<p class="text-sm text-gray-600">Best practices for data collection, storage, and organization</p>
-</div>
-</div>
-<div class="flex items-start">
-<i class="ri-check-line text-primary mt-1 mr-2"></i>
-<div>
-<p class="font-medium text-gray-800">Basic SQL for Data Analysis</p>
-<p class="text-sm text-gray-600">Introduction to SQL queries for extracting and analyzing data from databases</p>
-</div>
-</div>
-</div>
-</div>
-<div>
-<h4 class="font-bold text-gray-900 mb-3">Course Details</h4>
-<div class="grid grid-cols-2 gap-4">
-<div class="bg-gray-50 p-4 rounded-lg">
-<p class="text-sm text-gray-600 mb-1">Duration</p>
-<p class="font-medium text-gray-800">1 Week</p>
-</div>
-<div class="bg-gray-50 p-4 rounded-lg">
-<p class="text-sm text-gray-600 mb-1">Level</p>
-<p class="font-medium text-gray-800">Beginner</p>
-</div>
-<div class="bg-gray-50 p-4 rounded-lg">
-<p class="text-sm text-gray-600 mb-1">Prerequisites</p>
-<p class="font-medium text-gray-800">None</p>
-</div>
-<div class="bg-gray-50 p-4 rounded-lg">
-<p class="text-sm text-gray-600 mb-1">Certificate</p>
-<p class="font-medium text-gray-800">Yes</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<!-- Program 2 - Intermediate -->
-<div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 cursor-pointer">
+<!-- Program 2 -->
+<div data-course-id="2" class="course-card service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 cursor-pointer">
 <div class="h-48 bg-gray-200" style="background-image: url('https://readdy.ai/api/search-image?query=african%20business%20professional%20teaching%20data%20analytics%20to%20beginners%2C%20interactive%20whiteboard%20with%20charts%2C%20modern%20office%20environment%2C%20natural%20lighting%2C%20professional%20attire%2C%20engaged%20learners&width=800&height=400&seq=1&orientation=landscape'); background-size: cover; background-position: center;"></div>
 <div class="p-6">
 <div class="flex justify-between items-center mb-4">
 <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">Intermediate</span>
+<span id="text" class="text-gray-500 text-sm root-text-check">Virtual</span>
 <span class="text-gray-500 text-sm">2 Weeks</span>
 </div>
 <h3 class="text-xl font-bold text-gray-900 mb-2">Intermediate Data Analytics</h3>
 <p class="text-gray-600 mb-4">Build on your foundation with advanced analysis techniques, data modeling, and practical business applications. Develop expertise in transforming data into actionable insights.</p>
 <div class="flex justify-between items-center">
-<span class="text-primary price font-bold">ZMW 2,500</span>
+<span class="text-primary price font-bold inline-block mr-[10px]">Loading price...</span>
 <div class="flex gap-2">
-<!-- <button class="view-content-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">View Content</button> -->
+<button data-course-id="2" class="view-content-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">View Content</button>
 <button class="enroll-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">Enroll Now</button>
 </div>
 </div>
-<!-- Course Content Modal -->
-<div class="course-content-modal fixed inset-0 bg-black bg-opacity-50 z-50 hidden opacity-0 transition-opacity duration-300">
-<div class="flex items-center justify-center min-h-screen p-4">
-<div class="bg-white rounded-lg max-w-2xl w-full">
-<div class="p-6">
-<div class="flex justify-between items-start mb-6">
-<h3 class="text-2xl font-bold text-gray-900">Course Content</h3>
-<button class="close-content-modal text-gray-400 hover:text-gray-600">
-<i class="ri-close-line ri-2x"></i>
-</button>
-</div>
-<div class="space-y-6">
-<div>
-<h4 class="font-bold text-gray-900 mb-3">Course Overview</h4>
-<p class="text-gray-600">A comprehensive SQL program designed to help you master database querying and analysis for business insights.</p>
-</div>
-<div>
-<h4 class="font-bold text-gray-900 mb-3">What You'll Learn</h4>
-<div class="space-y-3">
-<div class="flex items-start">
-<i class="ri-check-line text-primary mt-1 mr-2"></i>
-<div>
-<p class="font-medium text-gray-800">Database Design & Optimization</p>
-<p class="text-sm text-gray-600">Learn to design efficient database structures and optimize query performance</p>
-</div>
-</div>
-<div class="flex items-start">
-<i class="ri-check-line text-primary mt-1 mr-2"></i>
-<div>
-<p class="font-medium text-gray-800">Advanced SQL Queries & Joins</p>
-<p class="text-sm text-gray-600">Master complex queries, joins, and data manipulation techniques</p>
-</div>
-</div>
-<div class="flex items-start">
-<i class="ri-check-line text-primary mt-1 mr-2"></i>
-<div>
-<p class="font-medium text-gray-800">Data Analysis & Reporting</p>
-<p class="text-sm text-gray-600">Create comprehensive reports and derive actionable insights</p>
-</div>
-</div>
-<div class="flex items-start">
-<i class="ri-check-line text-primary mt-1 mr-2"></i>
-<div>
-<p class="font-medium text-gray-800">ETL Processes & Data Warehousing</p>
-<p class="text-sm text-gray-600">Understand ETL processes and data warehouse concepts</p>
-</div>
-</div>
-<div class="flex items-start">
-<i class="ri-check-line text-primary mt-1 mr-2"></i>
-<div>
-<p class="font-medium text-gray-800">Performance Tuning</p>
-<p class="text-sm text-gray-600">Learn techniques to optimize query performance and database efficiency</p>
+<!-- Modal -->
+<div class="course-content-modal hidden opacity-0 fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center transition-opacity duration-300 z-50">
+  <div class="modal-content bg-white p-6 rounded max-w-lg max-h-[80vh] overflow-y-auto relative">
+  </div>
 </div>
 </div>
 </div>
-</div>
-<div>
-<h4 class="font-bold text-gray-900 mb-3">Course Details</h4>
-<div class="grid grid-cols-2 gap-4">
-<div class="bg-gray-50 p-4 rounded-lg">
-<p class="text-sm text-gray-600 mb-1">Duration</p>
-<p class="font-medium text-gray-800">2 Weeks</p>
-</div>
-<div class="bg-gray-50 p-4 rounded-lg">
-<p class="text-sm text-gray-600 mb-1">Level</p>
-<p class="font-medium text-gray-800">Intermediate</p>
-</div>
-<div class="bg-gray-50 p-4 rounded-lg">
-<p class="text-sm text-gray-600 mb-1">Prerequisites</p>
-<p class="font-medium text-gray-800">Basic SQL Knowledge</p>
-</div>
-<div class="bg-gray-50 p-4 rounded-lg">
-<p class="text-sm text-gray-600 mb-1">Certificate</p>
-<p class="font-medium text-gray-800">Yes</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<!-- Course Content Modal -->
-<div class="course-content-modal fixed inset-0 bg-black bg-opacity-50 z-50 hidden opacity-0 transition-opacity duration-300">
-<div class="flex items-center justify-center min-h-screen p-4">
-<div class="bg-white rounded-lg max-w-2xl w-full">
-<div class="p-6">
-<div class="flex justify-between items-start mb-6">
-<h3 class="text-2xl font-bold text-gray-900">Course Content</h3>
-<button class="close-content-modal text-gray-400 hover:text-gray-600">
-<i class="ri-close-line ri-2x"></i>
-</button>
-</div>
-<div class="space-y-6">
-<div>
-<h4 class="font-bold text-gray-900 mb-3">Course Overview</h4>
-<p class="text-gray-600">An intermediate level program designed to enhance your data analytics skills with advanced techniques and practical applications.</p>
-</div>
-<div>
-<h4 class="font-bold text-gray-900 mb-3">What You'll Learn</h4>
-<div class="space-y-3">
-<div class="flex items-start">
-<i class="ri-check-line text-primary mt-1 mr-2"></i>
-<div>
-<p class="font-medium text-gray-800">Advanced Data Modeling & ETL Process Implementation</p>
-<p class="text-sm text-gray-600">Master complex data modeling techniques and ETL processes for efficient data management</p>
-</div>
-</div>
-<div class="flex items-start">
-<i class="ri-check-line text-primary mt-1 mr-2"></i>
-<div>
-<p class="font-medium text-gray-800">Business Intelligence Tools & Performance Metrics</p>
-<p class="text-sm text-gray-600">Learn to use advanced BI tools and develop meaningful performance metrics</p>
-</div>
-</div>
-<div class="flex items-start">
-<i class="ri-check-line text-primary mt-1 mr-2"></i>
-<div>
-<p class="font-medium text-gray-800">Data-Driven Decision Making & Strategic Analysis</p>
-<p class="text-sm text-gray-600">Develop skills to make informed decisions using data analysis and strategic thinking</p>
-</div>
-</div>
-<div class="flex items-start">
-<i class="ri-check-line text-primary mt-1 mr-2"></i>
-<div>
-<p class="font-medium text-gray-800">Advanced SQL & Database Management Skills</p>
-<p class="text-sm text-gray-600">Master complex SQL queries and database management techniques</p>
-</div>
-</div>
-<div class="flex items-start">
-<i class="ri-check-line text-primary mt-1 mr-2"></i>
-<div>
-<p class="font-medium text-gray-800">Interactive Dashboard Development & Reporting</p>
-<p class="text-sm text-gray-600">Create sophisticated dashboards and reports for data visualization</p>
-</div>
-</div>
-</div>
-</div>
-<div>
-<h4 class="font-bold text-gray-900 mb-3">Course Details</h4>
-<div class="grid grid-cols-2 gap-4">
-<div class="bg-gray-50 p-4 rounded-lg">
-<p class="text-sm text-gray-600 mb-1">Duration</p>
-<p class="font-medium text-gray-800">2 Weeks</p>
-</div>
-<div class="bg-gray-50 p-4 rounded-lg">
-<p class="text-sm text-gray-600 mb-1">Level</p>
-<p class="font-medium text-gray-800">Intermediate</p>
-</div>
-<div class="bg-gray-50 p-4 rounded-lg">
-<p class="text-sm text-gray-600 mb-1">Prerequisites</p>
-<p class="font-medium text-gray-800">Basic Data Analytics</p>
-</div>
-<div class="bg-gray-50 p-4 rounded-lg">
-<p class="text-sm text-gray-600 mb-1">Certificate</p>
-<p class="font-medium text-gray-800">Yes</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<!-- Program 3 - Advanced -->
-<div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 cursor-pointer">
+<!-- Program 3 -->
+<div data-course-id="3" class="course-card service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 cursor-pointer">
 <div class="h-48 bg-gray-200" style="background-image: url('https://readdy.ai/api/search-image?query=professional%20black%20data%20scientist%20working%20with%20multiple%20screens%20showing%20advanced%20machine%20learning%20models%2C%20neural%20networks%20visualizations%2C%20modern%20tech%20office%20with%20blue%20accent%20lighting%2C%20data%20center%20environment%2C%20focused%20professional%20analysis&width=800&height=400&seq=3&orientation=landscape'); background-size: cover; background-position: center;"></div>
 <div class="p-6">
 <div class="flex justify-between items-center mb-4">
 <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">Advanced</span>
+<span class="text-gray-500 text-sm root-text-check">Virtual</span>
 <span class="text-gray-500 text-sm">4 Weeks</span>
 </div>
 <h3 class="text-xl font-bold text-gray-900 mb-2">Advanced Data Analytics & AI</h3>
 <p class="text-gray-600 mb-4">Dive deep into machine learning, predictive analytics, and AI applications. Learn to implement advanced statistical models and develop automated data pipelines for enterprise-level solutions.</p>
 <div class="flex justify-between items-center">
-<span class="text-primary price font-bold">ZMW 4,500</span>
+<span class="text-primary price font-bold inline-block mr-[10px]">Loading price...</span>
 <div class="flex gap-2">
-<!-- <button class="view-content-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">View Content</button> -->
+<button data-course-id="3" class="view-content-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">View Content</button>
 <button class="enroll-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">Enroll Now</button>
 </div>
 </div>
-</div>
-<!-- Course Content Modal -->
-<div class="course-content-modal fixed inset-0 bg-black bg-opacity-50 z-50 hidden opacity-0 transition-opacity duration-300">
-<div class="flex items-center justify-center min-h-screen p-4">
-<div class="bg-white rounded-lg max-w-2xl w-full">
-<div class="p-6">
-<div class="flex justify-between items-start mb-6">
-<h3 class="text-2xl font-bold text-gray-900">Course Content</h3>
-<button class="close-content-modal text-gray-400 hover:text-gray-600">
-<i class="ri-close-line ri-2x"></i>
-</button>
-</div>
-<div class="space-y-6">
-<div>
-<h4 class="font-bold text-gray-900 mb-3">Course Overview</h4>
-<p class="text-gray-600">An advanced program focused on machine learning, AI applications, and enterprise-level data solutions.</p>
-</div>
-<div>
-<h4 class="font-bold text-gray-900 mb-3">What You'll Learn</h4>
-<div class="space-y-3">
-<div class="flex items-start">
-<i class="ri-check-line text-primary mt-1 mr-2"></i>
-<div>
-<p class="font-medium text-gray-800">Machine Learning & AI Applications</p>
-<p class="text-sm text-gray-600">Implement machine learning algorithms and AI solutions for real-world business problems</p>
-</div>
-</div>
-<div class="flex items-start">
-<i class="ri-check-line text-primary mt-1 mr-2"></i>
-<div>
-<p class="font-medium text-gray-800">Advanced Statistical Modeling</p>
-<p class="text-sm text-gray-600">Master complex statistical models and predictive analytics techniques</p>
-</div>
-</div>
-<div class="flex items-start">
-<i class="ri-check-line text-primary mt-1 mr-2"></i>
-<div>
-<p class="font-medium text-gray-800">Neural Networks & Deep Learning</p>
-<p class="text-sm text-gray-600">Build and train neural networks for advanced pattern recognition and prediction</p>
-</div>
-</div>
-<div class="flex items-start">
-<i class="ri-check-line text-primary mt-1 mr-2"></i>
-<div>
-<p class="font-medium text-gray-800">Data Pipeline Development</p>
-<p class="text-sm text-gray-600">Design and implement automated data pipelines for enterprise solutions</p>
-</div>
-</div>
-<div class="flex items-start">
-<i class="ri-check-line text-primary mt-1 mr-2"></i>
-<div>
-<p class="font-medium text-gray-800">Advanced Analytics Tools</p>
-<p class="text-sm text-gray-600">Work with industry-standard tools and frameworks for advanced analytics</p>
-</div>
-</div>
-</div>
-</div>
-<div>
-<h4 class="font-bold text-gray-900 mb-3">Course Details</h4>
-<div class="grid grid-cols-2 gap-4">
-<div class="bg-gray-50 p-4 rounded-lg">
-<p class="text-sm text-gray-600 mb-1">Duration</p>
-<p class="font-medium text-gray-800">4 Weeks</p>
-</div>
-<div class="bg-gray-50 p-4 rounded-lg">
-<p class="text-sm text-gray-600 mb-1">Level</p>
-<p class="font-medium text-gray-800">Advanced</p>
-</div>
-<div class="bg-gray-50 p-4 rounded-lg">
-<p class="text-sm text-gray-600 mb-1">Prerequisites</p>
-<p class="font-medium text-gray-800">Intermediate Data Analytics</p>
-</div>
-<div class="bg-gray-50 p-4 rounded-lg">
-<p class="text-sm text-gray-600 mb-1">Certificate</p>
-<p class="font-medium text-gray-800">Yes</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<!-- Modal -->
+<div class="course-content-modal hidden opacity-0 fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center transition-opacity duration-300 z-50">
+  <div class="modal-content bg-white p-6 rounded max-w-lg max-h-[80vh] overflow-y-auto relative">
+  </div>
 </div>
 </div>
 </div>
 <!-- Program 4 - Power BI -->
-<div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 cursor-pointer">
+<div data-course-id="4" class="course-card service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 cursor-pointer">
 <div class="h-48 bg-gray-200" style="background-image: url('https://readdy.ai/api/search-image?query=professional%20black%20data%20analyst%20working%20with%20multiple%20power%20bi%20dashboards%2C%20modern%20office%20setting%20with%20blue%20accent%20lighting%2C%20interactive%20data%20visualization%20screens%2C%20clean%20corporate%20environment%2C%20focused%20analysis&width=800&height=400&seq=4&orientation=landscape'); background-size: cover; background-position: center;"></div>
 <div class="p-6">
 <div class="flex justify-between items-center mb-4">
 <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">Business Intelligence</span>
+<span class="text-gray-500 text-sm root-text-check">Virtual</span>
 <span class="text-gray-500 text-sm">2 Weeks</span>
 </div>
 <h3 class="text-xl font-bold text-gray-900 mb-2">Power BI Mastery Program</h3>
 <p class="text-gray-600 mb-4">Master the art of creating dynamic dashboards and reports with Power BI. Learn DAX, data modeling, and advanced visualization techniques for actionable business insights.</p>
-<div class="hidden course-content">
-<div class="space-y-3 mb-4">
-<div class="flex items-center text-sm text-gray-600">
-<i class="ri-check-line text-primary mr-2"></i>
-<span>Advanced DAX Formulas & Calculations</span>
-</div>
-<div class="flex items-center text-sm text-gray-600">
-<i class="ri-check-line text-primary mr-2"></i>
-<span>Custom Visualizations & Reports</span>
-</div>
-<div class="flex items-center text-sm text-gray-600">
-<i class="ri-check-line text-primary mr-2"></i>
-<span>Real-time Dashboard Development</span>
-</div>
-</div>
-</div>
 <div class="flex justify-between items-center">
-<span class="text-primary price font-bold">ZMW 3,500</span>
+<span class="text-primary price font-bold inline-block mr-[10px]">Loading price...</span>
 <div class="flex gap-2">
-<!-- <button class="view-content-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">View Content</button> -->
+<button data-course-id="4" class="view-content-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">View Content</button>
 <button class="enroll-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">Enroll Now</button>
+</div>
+<!-- Modal -->
+<div class="course-content-modal hidden opacity-0 fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center transition-opacity duration-300 z-50">
+  <div class="modal-content bg-white p-6 rounded max-w-lg max-h-[80vh] overflow-y-auto relative">
+  </div>
 </div>
 </div>
 </div>
 </div>
 <!-- Program 5 - SQL -->
-<div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 cursor-pointer">
+<div data-course-id="5" class="course-card service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 cursor-pointer">
 <div class="h-48 bg-gray-200" style="background-image: url('https://readdy.ai/api/search-image?query=confident%20african%20american%20female%20data%20scientist%20presenting%20SQL%20database%20concepts%2C%20standing%20in%20front%20of%20large%20interactive%20screens%20showing%20database%20schemas%20and%20query%20results%2C%20modern%20corporate%20training%20room%2C%20professional%20business%20attire%2C%20engaging%20teaching%20style&width=800&height=400&seq=5&orientation=landscape'); background-size: cover; background-position: center;"></div>
 <div class="p-6">
 <div class="flex justify-between items-center mb-4">
 <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">Database & Analytics</span>
+<span class="text-gray-500 text-sm root-text-check">Virtual</span>
 <span class="text-gray-500 text-sm">2 Weeks</span>
 </div>
 <h3 class="text-xl font-bold text-gray-900 mb-2">SQL for Data Analysis</h3>
 <p class="text-gray-600 mb-4">Master SQL querying, database design, and advanced analytics techniques. Learn to write efficient queries, perform complex data transformations, and derive actionable insights from databases.</p>
-<div class="course-content hidden mb-4">
-<div class="bg-gray-50 p-4 rounded-lg space-y-4">
-<div>
-<h4 class="font-bold text-gray-900 mb-2">Course Overview</h4>
-<p class="text-gray-600 text-sm">A comprehensive SQL program designed to help you master database querying and analysis for business insights.</p>
-</div>
-<div>
-<h4 class="font-bold text-gray-900 mb-2">What You'll Learn</h4>
-<div class="space-y-3">
-<div class="flex items-start">
-<i class="ri-check-line text-primary mt-1 mr-2"></i>
-<div>
-<p class="font-medium text-gray-800 text-sm">Database Design & Optimization</p>
-<p class="text-xs text-gray-600">Learn to design efficient database structures and optimize query performance</p>
-</div>
-</div>
-<div class="flex items-start">
-<i class="ri-check-line text-primary mt-1 mr-2"></i>
-<div>
-<p class="font-medium text-gray-800 text-sm">Advanced SQL Queries & Joins</p>
-<p class="text-xs text-gray-600">Master complex queries, joins, and data manipulation techniques</p>
-</div>
-</div>
-<div class="flex items-start">
-<i class="ri-check-line text-primary mt-1 mr-2"></i>
-<div>
-<p class="font-medium text-gray-800 text-sm">Data Analysis & Reporting</p>
-<p class="text-xs text-gray-600">Create comprehensive reports and derive actionable insights</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
 <div class="flex justify-between items-center">
-<span class="text-primary price font-bold">ZMW 2,500</span>
+<span class="text-primary price font-bold inline-block mr-[10px]">Loading price...</span>
 <div class="flex gap-2">
-<!-- <button class="view-content-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">View Content</button> -->
+<button data-course-id="5" class="view-content-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">View Content</button>
 <button class="enroll-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">Enroll Now</button>
 </div>
 </div>
-<!-- Course Content Modal -->
-<div class="course-content-modal fixed inset-0 bg-black bg-opacity-50 z-50 hidden opacity-0 transition-opacity duration-300">
-<div class="flex items-center justify-center min-h-screen p-4">
-<div class="bg-white rounded-lg max-w-2xl w-full">
-<div class="p-6">
-<div class="flex justify-between items-start mb-6">
-<h3 class="text-2xl font-bold text-gray-900">Course Content</h3>
-<button class="close-content-modal text-gray-400 hover:text-gray-600">
-<i class="ri-close-line ri-2x"></i>
-</button>
-</div>
-<div class="space-y-6">
-<div>
-<h4 class="font-bold text-gray-900 mb-3">Course Overview</h4>
-<p class="text-gray-600">A comprehensive SQL program designed to help you master database querying and analysis for business insights.</p>
-</div>
-<div>
-<h4 class="font-bold text-gray-900 mb-3">What You'll Learn</h4>
-<div class="space-y-3">
-<div class="flex items-start">
-<i class="ri-check-line text-primary mt-1 mr-2"></i>
-<div>
-<p class="font-medium text-gray-800">Database Design & Optimization</p>
-<p class="text-sm text-gray-600">Learn to design efficient database structures and optimize query performance</p>
-</div>
-</div>
-<div class="flex items-start">
-<i class="ri-check-line text-primary mt-1 mr-2"></i>
-<div>
-<p class="font-medium text-gray-800">Advanced SQL Queries & Joins</p>
-<p class="text-sm text-gray-600">Master complex queries, joins, and data manipulation techniques</p>
-</div>
-</div>
-<div class="flex items-start">
-<i class="ri-check-line text-primary mt-1 mr-2"></i>
-<div>
-<p class="font-medium text-gray-800">Data Analysis & Reporting</p>
-<p class="text-sm text-gray-600">Create comprehensive reports and derive actionable insights</p>
-</div>
-</div>
-<div class="flex items-start">
-<i class="ri-check-line text-primary mt-1 mr-2"></i>
-<div>
-<p class="font-medium text-gray-800">ETL Processes & Data Warehousing</p>
-<p class="text-sm text-gray-600">Understand ETL processes and data warehouse concepts</p>
-</div>
-</div>
-<div class="flex items-start">
-<i class="ri-check-line text-primary mt-1 mr-2"></i>
-<div>
-<p class="font-medium text-gray-800">Performance Tuning</p>
-<p class="text-sm text-gray-600">Learn techniques to optimize query performance and database efficiency</p>
-</div>
-</div>
-</div>
-</div>
-<div>
-<h4 class="font-bold text-gray-900 mb-3">Course Details</h4>
-<div class="grid grid-cols-2 gap-4">
-<div class="bg-gray-50 p-4 rounded-lg">
-<p class="text-sm text-gray-600 mb-1">Duration</p>
-<p class="font-medium text-gray-800">2 Weeks</p>
-</div>
-<div class="bg-gray-50 p-4 rounded-lg">
-<p class="text-sm text-gray-600 mb-1">Level</p>
-<p class="font-medium text-gray-800">Intermediate</p>
-</div>
-<div class="bg-gray-50 p-4 rounded-lg">
-<p class="text-sm text-gray-600 mb-1">Prerequisites</p>
-<p class="font-medium text-gray-800">Basic SQL Knowledge</p>
-</div>
-<div class="bg-gray-50 p-4 rounded-lg">
-<p class="text-sm text-gray-600 mb-1">Certificate</p>
-<p class="font-medium text-gray-800">Yes</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<!-- Modal -->
+<div class="course-content-modal hidden opacity-0 fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center transition-opacity duration-300 z-50">
+  <div class="modal-content bg-white p-6 rounded max-w-lg max-h-[80vh] overflow-y-auto relative">
+  </div>
 </div>
 </div>
 </div>
 <!-- Program 6 - Data Visualization -->
-<div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 cursor-pointer">
+<div data-course-id="6" class="course-card service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 cursor-pointer">
 <div class="h-48 bg-gray-200" style="background-image: url('https://readdy.ai/api/search-image?query=professional%20data%20visualization%20expert%20working%20with%20multiple%20large%20screens%20showing%20colorful%20interactive%20dashboards%2C%20charts%20and%20infographics%2C%20modern%20tech%20office%20with%20ambient%20lighting%2C%20clean%20minimalist%20workspace%2C%20data%20storytelling%20presentation&width=800&height=400&seq=6&orientation=landscape'); background-size: cover; background-position: center;"></div>
 <div class="p-6">
 <div class="flex justify-between items-center mb-4">
 <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">Data Visualization</span>
+<span class="text-gray-500 text-sm root-text-check">Virtual</span>
 <span class="text-gray-500 text-sm">2 Weeks</span>
 </div>
 <h3 class="text-xl font-bold text-gray-900 mb-2">Data Visualization Essentials</h3>
 <p class="text-gray-600 mb-4">Master the art of transforming complex data into compelling visual stories. Learn advanced visualization techniques, best practices, and industry-standard tools.</p>
-<div class="course-content hidden mb-4">
-<div class="bg-gray-50 p-4 rounded-lg space-y-4">
-<div>
-<h4 class="font-bold text-gray-900 mb-2">Course Overview</h4>
-<p class="text-gray-600 text-sm">A comprehensive program designed to help you master data visualization techniques and create compelling visual narratives.</p>
-</div>
-<div>
-<h4 class="font-bold text-gray-900 mb-2">What You'll Learn</h4>
-<div class="space-y-3">
-<div class="flex items-start">
-<i class="ri-check-line text-primary mt-1 mr-2"></i>
-<div>
-<p class="font-medium text-gray-800 text-sm">Interactive Dashboard Creation</p>
-<p class="text-xs text-gray-600">Build dynamic and interactive dashboards using modern visualization tools</p>
-</div>
-</div>
-<div class="flex items-start">
-<i class="ri-check-line text-primary mt-1 mr-2"></i>
-<div>
-<p class="font-medium text-gray-800 text-sm">Data Storytelling Techniques</p>
-<p class="text-xs text-gray-600">Learn to craft compelling narratives through data visualization</p>
-</div>
-</div>
-<div class="flex items-start">
-<i class="ri-check-line text-primary mt-1 mr-2"></i>
-<div>
-<p class="font-medium text-gray-800 text-sm">Advanced Chart Types & Tools</p>
-<p class="text-xs text-gray-600">Master various chart types and visualization tools for different scenarios</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
 <div class="flex justify-between items-center">
-<span class="text-primary price font-bold">ZMW 2,500</span>
+<span class="text-primary price font-bold inline-block mr-[10px]">Loading price...</span>
 <div class="flex gap-2">
-<!-- <button class="view-content-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">View Content</button> -->
+<button data-course-id="6" class="view-content-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">View Content</button>
 <button class="enroll-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">Enroll Now</button>
 </div>
 </div>
-<!-- Course Content Modal -->
-<div class="course-content-modal fixed inset-0 bg-black bg-opacity-50 z-50 hidden opacity-0 transition-opacity duration-300">
-<div class="flex items-center justify-center min-h-screen p-4">
-<div class="bg-white rounded-lg max-w-2xl w-full">
-<div class="p-6">
-<div class="flex justify-between items-start mb-6">
-<h3 class="text-2xl font-bold text-gray-900">Course Content</h3>
-<button class="close-content-modal text-gray-400 hover:text-gray-600">
-<i class="ri-close-line ri-2x"></i>
-</button>
-</div>
-<div class="space-y-6">
-<div>
-<h4 class="font-bold text-gray-900 mb-3">Course Overview</h4>
-<p class="text-gray-600">A comprehensive SQL program designed to help you master database querying and analysis for business insights.</p>
-</div>
-<div>
-<h4 class="font-bold text-gray-900 mb-3">What You'll Learn</h4>
-<div class="space-y-3">
-<div class="flex items-start">
-<i class="ri-check-line text-primary mt-1 mr-2"></i>
-<div>
-<p class="font-medium text-gray-800">Database Design & Optimization</p>
-<p class="text-sm text-gray-600">Learn to design efficient database structures and optimize query performance</p>
-</div>
-</div>
-<div class="flex items-start">
-<i class="ri-check-line text-primary mt-1 mr-2"></i>
-<div>
-<p class="font-medium text-gray-800">Advanced SQL Queries & Joins</p>
-<p class="text-sm text-gray-600">Master complex queries, joins, and data manipulation techniques</p>
-</div>
-</div>
-<div class="flex items-start">
-<i class="ri-check-line text-primary mt-1 mr-2"></i>
-<div>
-<p class="font-medium text-gray-800">Data Analysis & Reporting</p>
-<p class="text-sm text-gray-600">Create comprehensive reports and derive actionable insights</p>
-</div>
-</div>
-<div class="flex items-start">
-<i class="ri-check-line text-primary mt-1 mr-2"></i>
-<div>
-<p class="font-medium text-gray-800">ETL Processes & Data Warehousing</p>
-<p class="text-sm text-gray-600">Understand ETL processes and data warehouse concepts</p>
-</div>
-</div>
-<div class="flex items-start">
-<i class="ri-check-line text-primary mt-1 mr-2"></i>
-<div>
-<p class="font-medium text-gray-800">Performance Tuning</p>
-<p class="text-sm text-gray-600">Learn techniques to optimize query performance and database efficiency</p>
-</div>
-</div>
-</div>
-</div>
-<div>
-<h4 class="font-bold text-gray-900 mb-3">Course Details</h4>
-<div class="grid grid-cols-2 gap-4">
-<div class="bg-gray-50 p-4 rounded-lg">
-<p class="text-sm text-gray-600 mb-1">Duration</p>
-<p class="font-medium text-gray-800">2 Weeks</p>
-</div>
-<div class="bg-gray-50 p-4 rounded-lg">
-<p class="text-sm text-gray-600 mb-1">Level</p>
-<p class="font-medium text-gray-800">Intermediate</p>
-</div>
-<div class="bg-gray-50 p-4 rounded-lg">
-<p class="text-sm text-gray-600 mb-1">Prerequisites</p>
-<p class="font-medium text-gray-800">Basic SQL Knowledge</p>
-</div>
-<div class="bg-gray-50 p-4 rounded-lg">
-<p class="text-sm text-gray-600 mb-1">Certificate</p>
-<p class="font-medium text-gray-800">Yes</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<!-- Modal -->
+<div class="course-content-modal hidden opacity-0 fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center transition-opacity duration-300 z-50">
+  <div class="modal-content bg-white p-6 rounded max-w-lg max-h-[80vh] overflow-y-auto relative">
+  </div>
 </div>
 </div>
 </div>
 <!-- Program 7 - Data Storytelling -->
-<div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 cursor-pointer">
+<div data-course-id="7" class="course-card service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 cursor-pointer">
 <div class="h-48 bg-gray-200" style="background-image: url('https://readdy.ai/api/search-image?query=professional%20data%20storyteller%20presenting%20engaging%20data%20narrative%20on%20large%20screens%2C%20modern%20presentation%20room%20with%20dynamic%20visualizations%20and%20infographics%2C%20storytelling%20elements%2C%20clean%20corporate%20environment%2C%20audience%20engagement%2C%20sophisticated%20data%20presentation%20techniques&width=800&height=400&seq=7&orientation=landscape'); background-size: cover; background-position: center;"></div>
 <div class="p-6">
 <div class="flex justify-between items-center mb-4">
 <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">Specialized</span>
+<span class="text-gray-500 text-sm root-text-check">Virtual</span>
 <span class="text-gray-500 text-sm">1 Week</span>
 </div>
 <h3 class="text-xl font-bold text-gray-900 mb-2">Data Storytelling Mastery</h3>
 <p class="text-gray-600 mb-4">Master the art of crafting compelling narratives with data, learn storytelling frameworks, and develop impactful presentations.</p>
-<div class="course-content hidden mb-4">
-<div class="space-y-3">
-<div class="flex items-center text-sm text-gray-600">
-<i class="ri-check-line text-primary mr-2"></i>
-<span>Narrative Structure & Flow</span>
-</div>
-<div class="flex items-center text-sm text-gray-600">
-<i class="ri-check-line text-primary mr-2"></i>
-<span>Visual Storytelling Techniques</span>
-</div>
-<div class="flex items-center text-sm text-gray-600">
-<i class="ri-check-line text-primary mr-2"></i>
-<span>Audience Engagement Methods</span>
-</div>
-</div>
-</div>
 <div class="flex justify-between items-center">
-<span class="text-primary price font-bold">ZMW 2,000</span>
+<span class="text-primary price font-bold inline-block mr-[10px]">Loading price...</span>
 <div class="flex gap-2">
-<!-- <button class="view-content-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">View Content</button> -->
+<button data-course-id="7" class="view-content-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">View Content</button>
 <button class="enroll-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">Enroll Now</button>
 </div>
+</div>
+<!-- Modal -->
+<div class="course-content-modal hidden opacity-0 fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center transition-opacity duration-300 z-50">
+  <div class="modal-content bg-white p-6 rounded max-w-lg max-h-[80vh] overflow-y-auto relative">
+  </div>
 </div>
 </div>
 </div>
 <!-- Program 8 - Soft Skills -->
-<div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 cursor-pointer">
+<div data-course-id="8" class="course-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 cursor-pointer">
 <div class="h-48 bg-gray-200" style="background-image: url('https://readdy.ai/api/search-image?query=professional%20diverse%20team%20in%20modern%20office%20setting%2C%20collaborative%20workshop%20environment%2C%20people%20discussing%20and%20presenting%20ideas%2C%20focus%20on%20communication%20and%20leadership%2C%20clean%20corporate%20training%20room%20with%20natural%20lighting%2C%20professional%20business%20attire&width=800&height=400&seq=8&orientation=landscape'); background-size: cover; background-position: center;"></div>
 <div class="p-6">
 <div class="flex justify-between items-center mb-4">
 <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">Professional Development</span>
+<span class="text-gray-500 text-sm root-text-check">Virtual</span>
 <span class="text-gray-500 text-sm">1 Week</span>
 </div>
 <h3 class="text-xl font-bold text-gray-900 mb-2">Soft Skills for Data Professionals</h3>
 <p class="text-gray-600 mb-4">Enhance communication, leadership, and collaboration skills essential for data professionals to effectively work with stakeholders.</p>
-<div class="course-content hidden mb-4">
-<div class="space-y-3">
-<div class="flex items-center text-sm text-gray-600">
-<i class="ri-check-line text-primary mr-2"></i>
-<span>Effective Communication Strategies</span>
-</div>
-<div class="flex items-center text-sm text-gray-600">
-<i class="ri-check-line text-primary mr-2"></i>
-<span>Leadership & Team Management</span>
-</div>
-<div class="flex items-center text-sm text-gray-600">
-<i class="ri-check-line text-primary mr-2"></i>
-<span>Stakeholder Engagement Skills</span>
-</div>
-</div>
-</div>
 <div class="flex justify-between items-center">
-<span class="text-primary price font-bold">ZMW 1,000</span>
+<span class="text-primary price font-bold inline-block mr-[10px]">Loading price...</span>
 <div class="flex gap-2">
-<!-- <button class="view-content-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">View Content</button> -->
+<button data-course-id="8" class="view-content-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">View Content</button>
 <button class="enroll-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">Enroll Now</button>
 </div>
+</div>
+<!-- Modal -->
+<div class="course-content-modal hidden opacity-0 fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center transition-opacity duration-300 z-50">
+  <div class="modal-content bg-white p-6 rounded max-w-lg max-h-[80vh] overflow-y-auto relative">
+  </div>
 </div>
 </div>
 </div>
@@ -1853,7 +1298,7 @@ method="POST">
 <div id="enrollmentModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
 <div class="flex items-center justify-center min-h-screen p-4">
 <div class="bg-white rounded-lg max-w-2xl w-full">
-<div class="p-6">
+<div id="after-text" class="p-6">
 <div class="flex justify-between items-start mb-6">
 <h3 class="text-2xl font-bold text-gray-900">Program Enrollment</h3>
 <button id="closeEnrollmentModal" class="text-gray-400 hover:text-gray-600">
