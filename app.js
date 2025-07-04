@@ -643,10 +643,11 @@ function updateCoursesView() {
 
     const priceEl = card.querySelector(".price");
     if (isCorporate) {
-      priceEl.textContent = "Pricing on request";
+      priceEl.textContent = "Price on request";
     } else {
       const priceObj = course.prices[userCountry] || course.prices["US"];
-      priceEl.textContent = formatPrice(priceObj);
+      //priceEl.textContent = formatPrice(priceObj);
+      priceEl.textContent = "Price on request";
     }
 
     const deliveryLabels = card.querySelectorAll(".root-text-check");
@@ -744,7 +745,8 @@ async function setPrices() {
 
     if (course) {
       const priceObj = course.prices[countryCode] || course.prices["US"];
-      priceEl.textContent = formatPrice(priceObj);
+      //priceEl.textContent = formatPrice(priceObj);
+      priceEl.textContent = "Price on request";
     } else {
       priceEl.textContent = "Price not available";
     }
