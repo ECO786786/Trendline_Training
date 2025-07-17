@@ -264,7 +264,7 @@ const courseData = [
     id: 1,
     title: "Data Analytics Fundamentals",
     level: "Beginner",
-    duration: "1 Week",
+    duration: "1 Month",
     prices: {
       ZM: { amount: 1500, currency: "ZMW" },
       US: { amount: 70, currency: "USD" },
@@ -311,7 +311,7 @@ const courseData = [
     id: 2,
     title: "Intermediate Data Analytics",
     level: "Intermediate",
-    duration: "2 Weeks",
+    duration: "2 Months",
     prices: {
       ZM: { amount: 2500, currency: "ZMW" },
       US: { amount: 110, currency: "USD" },
@@ -358,7 +358,7 @@ const courseData = [
     id: 3,
     title: "Advanced Data Analytics & AI",
     level: "Advanced",
-    duration: "4 Weeks",
+    duration: "8 Weeks",
     prices: {
       ZM: { amount: 4500, currency: "ZMW" },
       US: { amount: 200, currency: "USD" },
@@ -406,7 +406,7 @@ const courseData = [
     id: 4,
     title: "Power BI Mastery Program",
     level: "Intermediate",
-    duration: "2 Weeks",
+    duration: "5 Days",
     prices: {
       ZM: { amount: 3500, currency: "ZMW" },
       US: { amount: 150, currency: "USD" },
@@ -455,7 +455,7 @@ const courseData = [
     id: 5,
     title: "SQL for Data Analysis",
     level: "Intermediate",
-    duration: "2 Weeks",
+    duration: "5 Days",
     prices: {
       ZM: { amount: 2500, currency: "ZMW" },
       US: { amount: 110, currency: "USD" },
@@ -488,7 +488,7 @@ const courseData = [
     id: 6,
     title: "Data Visualization Essentials",
     level: "Intermediate",
-    duration: "2 Weeks",
+    duration: "5 Days",
     prices: {
       ZM: { amount: 2500, currency: "ZMW" },
       US: { amount: 110, currency: "USD" },
@@ -526,7 +526,7 @@ const courseData = [
     id: 7,
     title: "Data Storytelling Mastery",
     level: "Intermediate",
-    duration: "2 Weeks",
+    duration: "5 Days",
     prices: {
       ZM: { amount: 2000, currency: "ZMW" },
       US: { amount: 95, currency: "USD" },
@@ -574,7 +574,7 @@ const courseData = [
     id: 8,
     title: "Soft Skills for Data Professionals",
     level: "All Levels",
-    duration: "1 Week",
+    duration: "5 Days",
     prices: {
       ZM: { amount: 1000, currency: "ZMW" },
       US: { amount: 50, currency: "USD" },
@@ -638,36 +638,33 @@ function updateCoursesView() {
   document.querySelectorAll(".course-card").forEach((card) => {
     const courseId = parseInt(card.getAttribute("data-course-id"));
     const course = courseData.find((c) => c.id === courseId);
-
     if (!course) return;
 
     const priceEl = card.querySelector(".price");
-    if (isCorporate) {
-      priceEl.textContent = "Price on request";
-    } else {
-      const priceObj = course.prices[userCountry] || course.prices["US"];
-      //priceEl.textContent = formatPrice(priceObj);
-      priceEl.textContent = "Price on request";
+    if (priceEl) {
+      priceEl.style.display = "none"; // hide element
     }
 
+    // Delivery label logic (you can keep or remove this)
     const deliveryLabels = card.querySelectorAll(".root-text-check");
     deliveryLabels.forEach((label) => {
       label.textContent = isCorporate ? "In Person" : "Virtual";
     });
 
+    // Corporate message logic
     let corporateMsg = card.querySelector(".corporate-message");
     if (isCorporate && !corporateMsg && course.corporateBenefits?.length) {
       const msgDiv = document.createElement("div");
       msgDiv.className =
         "corporate-message mt-4 text-sm text-gray-600 space-y-2";
-      msgDiv.innerHTML = `
-        <hr class="my-3">
-        <ul class="list-disc list-inside space-y-1">
-          ${course.corporateBenefits
-            .map((benefit) => `<li>${benefit}</li>`)
-            .join("")}
-        </ul>
-      `;
+      // msgDiv.innerHTML = `
+      //   <hr class="my-3">
+      //   <ul class="list-disc list-inside space-y-1">
+      //     ${course.corporateBenefits
+      //       .map((benefit) => `<li>${benefit}</li>`)
+      //       .join("")}
+      //   </ul>
+      // `;
       card.querySelector(".p-6").appendChild(msgDiv);
     } else if (
       (!isCorporate || !course.corporateBenefits?.length) &&
@@ -677,6 +674,7 @@ function updateCoursesView() {
     }
   });
 
+  // Button state toggle (unchanged)
   if (isCorporate) {
     btnCorporate.classList.add("bg-primary", "text-white");
     btnCorporate.classList.remove("bg-gray-300", "text-black");
@@ -745,7 +743,7 @@ async function setPrices() {
 
     if (course) {
       const priceObj = course.prices[countryCode] || course.prices["US"];
-      //priceEl.textContent = formatPrice(priceObj);
+      priceEl.textContent = formatPrice(priceObj);
       priceEl.textContent = "Price on request";
     } else {
       priceEl.textContent = "Price not available";
