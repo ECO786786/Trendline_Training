@@ -1,0 +1,61 @@
+:where([class^="ri-"])::before {
+  content: "\f3c2";
+}
+body {
+  font-family: "Inter", sans-serif;
+}
+.hero-section {
+  background-size: cover;
+  background-position: center 30%;
+}
+.gradient-overlay {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0.85) 40%,
+    rgba(255, 255, 255, 0.4) 100%
+  );
+}
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #1e3a8a;
+}
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+html {
+  scroll-behavior: smooth;
+}
+
+.bar {
+  height: 3px;
+  width: 100%;
+  background-color: black;
+  border-radius: 9999px;
+  transition: all 0.3s ease-in-out;
+}
+
+#menuToggle.open .bar1 {
+  transform: rotate(40deg) translate(9px, 10.5px);
+}
+
+#menuToggle.open .bar2 {
+  opacity: 0;
+}
+
+#menuToggle.open .bar3 {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.modal {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}

@@ -15,59 +15,14 @@
 <script src="https://cdn.tailwindcss.com/3.4.16"></script>
 <script>tailwind.config={theme:{extend:{colors:{primary:'#1e3a8a',secondary:'#f3f4f6'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
 <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+<link rel="stylesheet" href="styles.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
 <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 <link rel="icon" href="https://static.readdy.ai/image/7a2941f4f4bd206a071b69a2951de2dc/66ca896711b4be15fa15f7657f0c555e.jpeg" type="image/jpeg">
-
-<style>
-:where([class^="ri-"])::before { content: "\f3c2"; }
-body {
-font-family: 'Inter', sans-serif;
-}
-.hero-section {
-background-size: cover;
-background-position: center 30%;
-}
-.gradient-overlay {
-background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.85) 40%, rgba(255,255,255,0.4) 100%);
-}
-input:focus, textarea:focus {
-outline: none;
-border-color: #1e3a8a;
-}
-.service-card:hover {
-transform: translateY(-5px);
-box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-}
-html {
-    scroll-behavior: smooth;
-  }
-
-  .bar {
-    height: 3px;
-    width: 100%;
-    background-color: black;
-    border-radius: 9999px;
-    transition: all 0.3s ease-in-out;
-  }
-
-  #menuToggle.open .bar1 {
-    transform: rotate(40deg) translate(9px, 10.5px);
-  }
-
-  #menuToggle.open .bar2 {
-    opacity: 0;
-  }
-
-  #menuToggle.open .bar3 {
-    transform: rotate(-45deg) translate(5px, -5px);
-  }
-</style>
 </head>
-
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-V5NLVCR1BG"></script>
 <script>
@@ -90,14 +45,38 @@ html {
     </div>
 
     <!-- Desktop Nav -->
-    <nav class="hidden md:flex space-x-5">
-      <a href="#home" class="text-gray-800 hover:text-primary font-medium">Home</a>
-      <a href="#services" class="text-gray-800 hover:text-primary font-medium">Services</a>
-      <a href="#about" class="text-gray-800 hover:text-primary font-medium">About Us</a>
-      <a href="#programs" class="text-gray-800 hover:text-primary font-medium">Programs</a>
-      <a href="#contact" class="text-gray-800 hover:text-primary font-medium">Contact</a>
-    </nav>
-  
+ <nav class="hidden md:flex space-x-5">
+  <a href="index.html" class="text-gray-800 hover:text-primary font-medium">Home</a>
+  <a href="about.html" class="text-gray-800 hover:text-primary font-medium">About Us</a>
+
+ <div class="relative group">
+  <button
+    class="text-gray-800 hover:text-primary font-medium inline-flex items-center"
+    aria-haspopup="true"
+    aria-expanded="false"
+  >
+    Our Services
+    <svg class="ml-1 w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+      <path d="M5.516 7.548l4.484 4.484 4.484-4.484L15 9l-5 5-5-5z"/>
+    </svg>
+  </button>
+  <div
+    class="absolute left-0 top-full w-48 bg-white rounded shadow-md opacity-0 invisible group-hover:visible group-hover:opacity-100 transition-opacity duration-300 z-50"
+    role="menu"
+    aria-label="submenu"
+  >
+    <a href="corporate.html" class="block px-4 py-2 text-gray-800 hover:bg-primary hover:text-white" role="menuitem">
+      Corporate Solutions
+    </a>
+    <!-- <a href="#other-service" class="block px-4 py-2 text-gray-800 hover:bg-primary hover:text-white" role="menuitem">
+      Other Service
+    </a> -->
+  </div>
+</div>
+  <a href="programs.html" class="text-gray-800 hover:text-primary font-medium">Programs</a>
+  <a href="contact.html" class="text-gray-800 hover:text-primary font-medium">Contact</a>
+</nav>
+
 <!-- Calendly link widget begin -->
 <button onclick="Calendly.initPopupWidget({url: 'https://calendly.com/trendline02tc/30min'}); return false;" class="bg-primary text-white px-4 py-2 rounded font-medium hover:bg-primary/90 transition whitespace-nowrap">Book Appointment</button>
 <!-- Calendly link widget end -->
@@ -112,17 +91,27 @@ html {
     </div>
 
   <!-- Mobile Menu -->
-  <div id="mobileMenu" class="md:hidden hidden bg-white p-4 shadow-md h-screen w-1/2 fixed top-0 right-0 z-50">
-    <nav class="flex flex-col space-y-4">
-      <a href="#home" class="text-gray-800 hover:text-primary font-medium">Home</a>
-      <a href="#services" class="text-gray-800 hover:text-primary font-medium">Services</a>
-      <a href="#about" class="text-gray-800 hover:text-primary font-medium">About Us</a>
-      <a href="#programs" class="text-gray-800 hover:text-primary font-medium">Programs</a>
-      <a href="#contact" class="text-gray-800 hover:text-primary font-medium">Contact</a>
-    </nav>
-  </div>
-  
+<div id="mobileMenu" class="md:hidden bg-white p-4 shadow-md h-screen w-1/2 fixed top-0 right-0 z-50 overflow-y-auto hidden">
 
+  <nav class="flex flex-col space-y-4">
+    <a href="index.html" class="text-gray-800 hover:text-primary font-medium">Home</a>
+    <a href="about.html" class="text-gray-800 hover:text-primary font-medium">About Us</a>
+   <div>
+  <button id="mobileServicesToggle" class="flex justify-between items-center w-full text-gray-800 font-medium hover:text-primary focus:outline-none">
+    Our Services
+    <svg id="mobileServicesIcon" class="w-4 h-4 transform transition-transform" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+      <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.27a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+    </svg>
+  </button>
+  <div id="mobileServicesSubmenu" class="hidden mt-2 ml-4 flex flex-col space-y-2">
+    <a href="corporate.html" class="text-gray-800 hover:text-primary font-medium">Corporate Solutions</a>
+
+  </div>
+</div>
+    <a href="programs.html" class="text-gray-800 hover:text-primary font-medium">Programs</a>
+    <a href="contact.html" class="text-gray-800 hover:text-primary font-medium">Contact</a>
+  </nav>
+</div>
   <!-- Overlay -->
   <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden z-30 md:hidden"></div>
 </header>
@@ -223,7 +212,7 @@ html {
 <!-- Industries We Serve Section -->
 <section class="bg-gray-50 py-16">
 <div class="container mx-auto px-4">
-<h2 class="text-center text-2xl font-bold text-gray-900 mb-4">Industries We Serve</h2>
+<h2 class="text-center text-3xl font-bold text-gray-900 mb-4">Industries We Serve</h2>
 <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Our specialized training and consultancy services cater to diverse industries, helping organizations harness the power of data analytics</p>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition cursor-pointer">
@@ -483,86 +472,6 @@ html {
 </div>
 </div>
 </section>
-<!-- About Us Section -->
-<section id="about" class="py-20 bg-gray-50">
-<div class="container mx-auto px-4">
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-<div class="h-[600px]">
-<img src="https://static.readdy.ai/image/7a2941f4f4bd206a071b69a2951de2dc/9cd414b77142693499d5d89a4966e778.png" alt="About Trendline Training" class="rounded-lg shadow-lg w-full h-full object-cover">
-</div>
-<div>
-<h2 class="text-3xl font-bold text-gray-900 mb-6">About Trendline Training & Consultancy</h2>
-<p class="text-gray-600 mb-8">We are an emerging data analytics training and consultancy hub based in Zambia, committed to equipping individuals and organizations with the skills and tools needed to excel in today's data-driven world. By empowering institutions, professionals and students we aim to be at the forefront of shaping the future of analytics in Zambia and beyond.</p>
-<div class="bg-white p-8 rounded-lg shadow-sm mb-8">
-<h3 class="text-xl font-bold text-gray-900 mb-4">Our Mission</h3>
-<p class="text-gray-600">To empower organizations and individuals
-in Zambia and globally with cutting-edge
-data analytics skills, fostering innovation
-and excellence in decision-making
-worldwide.</p>
-</div>
-<div class="bg-white p-8 rounded-lg shadow-sm mb-8">
-<h3 class="text-xl font-bold text-gray-900 mb-4">Our Vision</h3>
-<p class="text-gray-600">To provide comprehensive and accessible
-training in data analysis and equipping
-professionals, learners and institutions with
-practical skills and theoretical knowledge to
-thrive in the evolving data-driven
-landscape. We aim to deliver top-tier
-consultancy services to institutions,
-enhancing their data-driven and strategic
-insights.</p>
-</div>
-<div class="bg-white p-8 rounded-lg shadow-sm mb-8">
-<h3 class="text-xl font-bold text-gray-900 mb-4">Our Goals</h3>
-<ul class="space-y-4">
-<li class="flex items-start">
-<div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mr-3 mt-1">
-<i class="ri-check-line text-primary text-sm"></i>
-</div>
-<div>
-<p class="text-gray-600">Offer high-quality, hands-on training programs integrating industry best practices and emerging technologies in data analytics.</p>
-</div>
-</li>
-<li class="flex items-start">
-<div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mr-3 mt-1">
-<i class="ri-check-line text-primary text-sm"></i>
-</div>
-<div>
-<p class="text-gray-600">Empower students and professionals with latest tools and techniques for real-world data analysis challenges.</p>
-</div>
-</li>
-<li class="flex items-start">
-<div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mr-3 mt-1">
-<i class="ri-check-line text-primary text-sm"></i>
-</div>
-<div>
-<p class="text-gray-600">Become a trusted partner for institutions seeking to optimize their data departments with tailored solutions.</p>
-</div>
-</li>
-<li class="flex items-start">
-<div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mr-3 mt-1">
-<i class="ri-check-line text-primary text-sm"></i>
-</div>
-<div>
-<p class="text-gray-600">Foster a data-driven culture by promoting analytical thinking and evidence-based decision making.</p>
-</div>
-</li>
-<li class="flex items-start">
-<div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mr-3 mt-1">
-<i class="ri-check-line text-primary text-sm"></i>
-</div>
-<div>
-<p class="text-gray-600">Stay at the forefront of technological advancements and industry trends,
-continuously updating our curriculum and consultancy approaches to
-meet evolving market needs.</p>
-</div>
-</li>
-</ul>
-
-</div>
-</div>
-</section>
 <!-- Learn More Modal -->
 <div id="learnMoreModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden" style="opacity: 0">
 <div class="flex items-center justify-center min-h-screen p-4">
@@ -754,225 +663,6 @@ meet evolving market needs.</p>
 </div>
 </div>
 </div>
-<!-- Training Programs Section -->
-<section id="programs" class="py-20">
-<div class="container mx-auto px-4">
-<div class="text-center mb-16">
-<h2 class="text-3xl font-bold text-gray-900 mb-4">Our Training Programs</h2>
-<p class="text-gray-600 max-w-2xl mx-auto mb-4">Discover our comprehensive range of training programs designed to enhance your organization's data capabilities and strategic decision-making.</p>
- <div class="space-x-2">
-     <button id="btn-individuals" class="bg-primary text-white px-4 py-2 rounded font-medium hover:bg-primary/90 transition whitespace-nowrap">Individuals</button>
-<button id="btn-corporate" class="bg-gray-300 text-black px-4 py-2 rounded font-medium hover:bg-primary/90 transition whitespace-nowrap">Corporate</button>
-    </div>
-</div>
-
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-<!-- Program 1 - Beginner -->
-<div data-course-id="1" class="course-card service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 cursor-pointer max-w-md mx-auto">
-  <div class="h-48 bg-gray-200" style="background-image: url('https://readdy.ai/api/search-image?query=professional%20black%20data%20analyst%20teaching%20in%20modern%20classroom%2C%20multiple%20computer%20screens%20displaying%20excel%20spreadsheets%20and%20basic%20charts%2C%20bright%20welcoming%20learning%20environment%2C%20students%20engaged%20in%20hands-on%20training%2C%20clean%20corporate%20setting&width=800&height=400&seq=3&orientation=landscape'); background-size: cover; background-position: center;"></div>
-  <div class="p-6">
-    <div class="flex justify-between items-center mb-4">
-      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">Beginner</span>
-      <span class="text-gray-500 text-sm root-text-check">Virtual</span>
-      <span class="text-gray-500 text-sm">1 Month</span>
-    </div>
-    <h3 class="text-xl font-bold text-gray-900 mb-2">Data Analytics Fundamentals</h3>
-    <p class="text-gray-600 mb-4">Master data analysis essentials through hands-on training in Excel, basic statistics, and data visualization. Ideal for beginners starting their analytics journey with confidence today.</p>
-    <div class="flex justify-between items-center">
-      <span class="text-primary price font-bold inline-block mr-[10px] text-sm">Loading price...</span>
-      <div class="flex gap-2">
-        <button data-course-id="1" class="view-content-btn bg-primary text-white px-4 py-2 rounded text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">View Content</button>
-        <button class="enroll-btn bg-primary text-white px-4 py-2 rounded text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">Learn More</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Modal -->
-<div class="course-content-modal hidden opacity-0 fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center transition-opacity duration-300 z-50">
-  <div class="modal-content bg-white p-6 rounded max-w-lg max-h-[80vh] overflow-y-auto relative">
-  
-  </div>
-</div>
-<!-- Program 2 -->
-<div data-course-id="2" class="course-card service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 cursor-pointer">
-<div class="h-48 bg-gray-200" style="background-image: url('https://readdy.ai/api/search-image?query=african%20business%20professional%20teaching%20data%20analytics%20to%20beginners%2C%20interactive%20whiteboard%20with%20charts%2C%20modern%20office%20environment%2C%20natural%20lighting%2C%20professional%20attire%2C%20engaged%20learners&width=800&height=400&seq=1&orientation=landscape'); background-size: cover; background-position: center;"></div>
-<div class="p-6">
-<div class="flex justify-between items-center mb-4">
-<span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">Intermediate</span>
-<span id="text" class="text-gray-500 text-sm root-text-check">Virtual</span>
-<span class="text-gray-500 text-sm">2 Months</span>
-</div>
-<h3 class="text-xl font-bold text-gray-900 mb-2">Intermediate Data Analytics</h3>
-<p class="text-gray-600 mb-4">Build on your foundation with advanced analysis techniques, data modeling, and business applications. Gain expertise in transforming complex data into actionable insights that drive results.</p>
-<div class="flex justify-between items-center">
-<span class="text-primary price font-bold inline-block mr-[10px] text-sm">Loading price...</span>
-<div class="flex gap-2">
-<button data-course-id="2" class="view-content-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">View Content</button>
-<button class="enroll-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">Learn More</button>
-</div>
-</div>
-<!-- Modal -->
-<div class="course-content-modal hidden opacity-0 fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center transition-opacity duration-300 z-50">
-  <div class="modal-content bg-white p-6 rounded max-w-lg max-h-[80vh] overflow-y-auto relative">
-  </div>
-</div>
-</div>
-</div>
-<!-- Program 3 -->
-<div data-course-id="3" class="course-card service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 cursor-pointer">
-<div class="h-48 bg-gray-200" style="background-image: url('https://readdy.ai/api/search-image?query=professional%20black%20data%20scientist%20working%20with%20multiple%20screens%20showing%20advanced%20machine%20learning%20models%2C%20neural%20networks%20visualizations%2C%20modern%20tech%20office%20with%20blue%20accent%20lighting%2C%20data%20center%20environment%2C%20focused%20professional%20analysis&width=800&height=400&seq=3&orientation=landscape'); background-size: cover; background-position: center;"></div>
-<div class="p-6">
-<div class="flex justify-between items-center mb-4">
-<span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">Advanced</span>
-<span class="text-gray-500 text-sm root-text-check">Virtual</span>
-<span class="text-gray-500 text-sm">8 Weeks</span>
-</div>
-<h3 class="text-xl font-bold text-gray-900 mb-2">Advanced Data Analytics & AI</h3>
-<p class="text-gray-600 mb-4">Dive deep into machine learning, predictive analytics, and AI applications. Learn to implement advanced statistical models and develop automated data pipelines for enterprise-level solutions.</p>
-<div class="flex justify-between items-center">
-<span class="text-primary price font-bold inline-block mr-[10px] text-sm">Loading price...</span>
-<div class="flex gap-2">
-<button data-course-id="3" class="view-content-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">View Content</button>
-<button class="enroll-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">Learn More</button>
-</div>
-</div>
-<!-- Modal -->
-<div class="course-content-modal hidden opacity-0 fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center transition-opacity duration-300 z-50">
-  <div class="modal-content bg-white p-6 rounded max-w-lg max-h-[80vh] overflow-y-auto relative">
-  </div>
-</div>
-</div>
-</div>
-<!-- Program 4 - Power BI -->
-<div data-course-id="4" class="course-card service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 cursor-pointer">
-<div class="h-48 bg-gray-200" style="background-image: url('https://readdy.ai/api/search-image?query=professional%20black%20data%20analyst%20working%20with%20multiple%20power%20bi%20dashboards%2C%20modern%20office%20setting%20with%20blue%20accent%20lighting%2C%20interactive%20data%20visualization%20screens%2C%20clean%20corporate%20environment%2C%20focused%20analysis&width=800&height=400&seq=4&orientation=landscape'); background-size: cover; background-position: center;"></div>
-<div class="p-6">
-<div class="flex justify-between items-center mb-4">
-<span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">Business Intelligence</span>
-<span class="text-gray-500 text-sm root-text-check">Virtual</span>
-<span class="text-gray-500 text-sm">5 Days</span>
-</div>
-<h3 class="text-xl font-bold text-gray-900 mb-2">Power BI Mastery Program</h3>
-<p class="text-gray-600 mb-4">Master the art of creating dynamic dashboards and reports with Power BI. Learn DAX, data modeling, and advanced visualization techniques for actionable business insights.</p>
-<div class="flex justify-between items-center">
-<span class="text-primary price font-bold inline-block mr-[10px] text-sm">Loading price...</span>
-<div class="flex gap-2">
-<button data-course-id="4" class="view-content-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">View Content</button>
-<button class="enroll-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">Learn More</button>
-</div>
-<!-- Modal -->
-<div class="course-content-modal hidden opacity-0 fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center transition-opacity duration-300 z-50">
-  <div class="modal-content bg-white p-6 rounded max-w-lg max-h-[80vh] overflow-y-auto relative">
-  </div>
-</div>
-</div>
-</div>
-</div>
-<!-- Program 5 - SQL -->
-<div data-course-id="5" class="course-card service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 cursor-pointer">
-<div class="h-48 bg-gray-200" style="background-image: url('https://readdy.ai/api/search-image?query=confident%20african%20american%20female%20data%20scientist%20presenting%20SQL%20database%20concepts%2C%20standing%20in%20front%20of%20large%20interactive%20screens%20showing%20database%20schemas%20and%20query%20results%2C%20modern%20corporate%20training%20room%2C%20professional%20business%20attire%2C%20engaging%20teaching%20style&width=800&height=400&seq=5&orientation=landscape'); background-size: cover; background-position: center;"></div>
-<div class="p-6">
-<div class="flex justify-between items-center mb-4">
-<span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">Database & Analytics</span>
-<span class="text-gray-500 text-sm root-text-check">Virtual</span>
-<span class="text-gray-500 text-sm">5 Days</span>
-</div>
-<h3 class="text-xl font-bold text-gray-900 mb-2">SQL for Data Analysis</h3>
-<p class="text-gray-600 mb-4">Master SQL querying, database design, and advanced analytics techniques. Learn to write efficient queries, perform complex data transformations, and derive actionable insights from databases.</p>
-<div class="flex justify-between items-center">
-<span class="text-primary price font-bold inline-block mr-[10px] text-sm">Loading price...</span>
-<div class="flex gap-2">
-<button data-course-id="5" class="view-content-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">View Content</button>
-<button class="enroll-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">Learn More</button>
-</div>
-</div>
-<!-- Modal -->
-<div class="course-content-modal hidden opacity-0 fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center transition-opacity duration-300 z-50">
-  <div class="modal-content bg-white p-6 rounded max-w-lg max-h-[80vh] overflow-y-auto relative">
-  </div>
-</div>
-</div>
-</div>
-<!-- Program 6 - Data Visualization -->
-<div data-course-id="6" class="course-card service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 cursor-pointer">
-<div class="h-48 bg-gray-200" style="background-image: url('https://readdy.ai/api/search-image?query=professional%20data%20visualization%20expert%20working%20with%20multiple%20large%20screens%20showing%20colorful%20interactive%20dashboards%2C%20charts%20and%20infographics%2C%20modern%20tech%20office%20with%20ambient%20lighting%2C%20clean%20minimalist%20workspace%2C%20data%20storytelling%20presentation&width=800&height=400&seq=6&orientation=landscape'); background-size: cover; background-position: center;"></div>
-<div class="p-6">
-<div class="flex justify-between items-center mb-4">
-<span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">Data Visualization</span>
-<span class="text-gray-500 text-sm root-text-check">Virtual</span>
-<span class="text-gray-500 text-sm">5 Days</span>
-</div>
-<h3 class="text-xl font-bold text-gray-900 mb-2">Data Visualization Essentials</h3>
-<p class="text-gray-600 mb-4">Master the art of transforming complex data into compelling visual stories. Learn advanced visualization techniques, best practices, and industry-standard tools.</p>
-<div class="flex justify-between items-center">
-<span class="text-primary price font-bold inline-block mr-[10px] text-sm">Loading price...</span>
-<div class="flex gap-2">
-<button data-course-id="6" class="view-content-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">View Content</button>
-<button class="enroll-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">Learn More</button>
-</div>
-</div>
-<!-- Modal -->
-<div class="course-content-modal hidden opacity-0 fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center transition-opacity duration-300 z-50">
-  <div class="modal-content bg-white p-6 rounded max-w-lg max-h-[80vh] overflow-y-auto relative">
-  </div>
-</div>
-</div>
-</div>
-<!-- Program 7 - Data Storytelling -->
-<div data-course-id="7" class="course-card service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 cursor-pointer">
-<div class="h-48 bg-gray-200" style="background-image: url('https://readdy.ai/api/search-image?query=professional%20data%20storyteller%20presenting%20engaging%20data%20narrative%20on%20large%20screens%2C%20modern%20presentation%20room%20with%20dynamic%20visualizations%20and%20infographics%2C%20storytelling%20elements%2C%20clean%20corporate%20environment%2C%20audience%20engagement%2C%20sophisticated%20data%20presentation%20techniques&width=800&height=400&seq=7&orientation=landscape'); background-size: cover; background-position: center;"></div>
-<div class="p-6">
-<div class="flex justify-between items-center mb-4">
-<span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">Specialized</span>
-<span class="text-gray-500 text-sm root-text-check">Virtual</span>
-<span class="text-gray-500 text-sm">5 Days</span>
-</div>
-<h3 class="text-xl font-bold text-gray-900 mb-2">Data Storytelling Mastery</h3>
-<p class="text-gray-600 mb-4">Master the art of crafting compelling narratives with data, learn storytelling frameworks, and develop impactful presentations.</p>
-<div class="flex justify-between items-center">
-<span class="text-primary price font-bold inline-block mr-[10px] text-sm">Loading price...</span>
-<div class="flex gap-2">
-<button data-course-id="7" class="view-content-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">View Content</button>
-<button class="enroll-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">Learn More</button>
-</div>
-</div>
-<!-- Modal -->
-<div class="course-content-modal hidden opacity-0 fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center transition-opacity duration-300 z-50">
-  <div class="modal-content bg-white p-6 rounded max-w-lg max-h-[80vh] overflow-y-auto relative">
-  </div>
-</div>
-</div>
-</div>
-<!-- Program 8 - Soft Skills -->
-<div data-course-id="8" class="course-card service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 cursor-pointer">
-<div class="h-48 bg-gray-200" style="background-image: url('https://readdy.ai/api/search-image?query=professional%20diverse%20team%20in%20modern%20office%20setting%2C%20collaborative%20workshop%20environment%2C%20people%20discussing%20and%20presenting%20ideas%2C%20focus%20on%20communication%20and%20leadership%2C%20clean%20corporate%20training%20room%20with%20natural%20lighting%2C%20professional%20business%20attire&width=800&height=400&seq=8&orientation=landscape'); background-size: cover; background-position: center;"></div>
-<div class="p-6">
-<div class="flex justify-between items-center mb-4">
-<span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">Professional Development</span>
-<span class="text-gray-500 text-sm root-text-check">Virtual</span>
-<span class="text-gray-500 text-sm">5 Days</span>
-</div>
-<h3 class="text-xl font-bold text-gray-900 mb-2">Soft Skills for Data Professionals</h3>
-<p class="text-gray-600 mb-4">Enhance communication, leadership, and collaboration skills essential for data professionals to effectively work with stakeholders.</p>
-<div class="flex justify-between items-center">
-<span class="text-primary price font-bold inline-block mr-[10px] text-sm">Loading price...</span>
-<div class="flex gap-2">
-<button data-course-id="8" class="view-content-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">View Content</button>
-<button class="enroll-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">Learn More</button>
-</div>
-</div>
-<!-- Modal -->
-<div class="course-content-modal hidden opacity-0 fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center transition-opacity duration-300 z-50">
-  <div class="modal-content bg-white p-6 rounded max-w-lg max-h-[80vh] overflow-y-auto relative">
-  </div>
-</div>
-</div>
-</div>
-<!-- <div class="mt-12 text-center">
-<button class="bg-white border border-gray-300 text-gray-800 px-8 py-3 !rounded-button font-medium hover:bg-gray-50 transition whitespace-nowrap">View All Programs</button>
-</div> -->
-</div>
-</section>
 <!-- Testimonials Section -->
 <section class="py-20 bg-gray-50">
 <div class="container mx-auto px-4">
@@ -994,8 +684,9 @@ meet evolving market needs.</p>
 </div>
 <p class="text-gray-600 mb-6">"Trendline transformed how we view and manage our operations. With real-time data at our fingertips, we are faster, more informed, and better aligned with our customers' expectations."</p>
 <div class="flex items-center">
-<div class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center mr-4">
-<i class="ri-user-line text-gray-400"></i>
+<div class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center mr-4 overflow-hidden">
+  <img src="./image/powerdrive.png" alt="Powerdrive Freight" 
+       class="w-full h-full object-contain p-1">
 </div>
 <div>
 <h4 class="font-bold text-gray-900">Operations Manager</h4>
@@ -1014,14 +705,19 @@ meet evolving market needs.</p>
 <i class="ri-star-fill"></i>
 </div>
 </div>
-<p class="text-gray-600 mb-6">"The sessions were practical and empowering. From zero to modeling cash flows and projections—we now feel confident stepping into the finance world, thanks to Trendline."</p>
+<p class="text-gray-600 mb-6">"The financial modelling and Power BI training was practical and
+interactive, enhancing my leadership in data-driven decisions.
+It provided the Finance team with relevant, real-work skills and a
+valuable coaching opportunity for me"</p>
 <div class="flex items-center">
-<div class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center mr-4">
-<i class="ri-user-line text-gray-400"></i>
+<div class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center mr-4 overflow-hidden">
+  <img src="./image/dangote.jpg" alt="Dangote" 
+       class="w-full h-full object-contain p-1">
 </div>
 <div>
-<h4 class="font-bold text-gray-900">Student Group Representative</h4>
-<p class="text-gray-500 text-sm">ZCAS</p>
+<h4 class="font-bold text-gray-900">
+Financial Controller</h4>
+<p class="text-gray-500 text-sm">Dangote</p>
 </div>
 </div>
 </div>
@@ -1038,8 +734,9 @@ meet evolving market needs.</p>
 </div>
 <p class="text-gray-600 mb-6">"Trendline designed and managed our Fixed Asset Data Registry with professionalism and precision. Their work streamlined our asset tracking and enhanced our audit readiness. Highly recommended."</p>
 <div class="flex items-center">
-<div class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center mr-4">
-<i class="ri-user-line text-gray-400"></i>
+<div class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center mr-4 overflow-hidden">
+  <img src="./image/gatesville.jpeg" alt="Gatesville Investments Limited" 
+       class="w-full h-full object-contain p-1">
 </div>
 <div>
 <h4 class="font-bold text-gray-900">Asset Manager</h4>
@@ -1109,113 +806,7 @@ Event Template - Copy and modify this template for each new event
 </div>
 </div>
 </section> -->
-<!-- Contact Section -->
-<section id="contact" class="py-20">
-<div class="container mx-auto px-4">
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
-<div>
-<h2 class="text-3xl font-bold text-gray-900 mb-6">Get in Touch</h2>
-<p class="text-gray-600 mb-8">Have questions about our training programs or consultancy services? Reach out to our team for more information or to schedule a consultation.</p>
-<div class="space-y-6 mb-8">
-<div class="flex items-start">
-<div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 mt-1">
-<i class="ri-map-pin-line text-primary"></i>
-</div>
-<div>
-<h4 class="font-bold text-gray-900 mb-1">Office Location</h4>
-<p class="text-gray-600">4th Floor, Anchor House, Suite 405<br>Cairo Road, Lusaka, Zambia<br>P.O. Box 380104</p>
-</div>
-</div>
-<div class="flex items-start">
-<div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 mt-1">
-<i class="ri-phone-line text-primary"></i>
-</div>
-<div>
-<h4 class="font-bold text-gray-900 mb-1">Phone</h4>
-<p class="text-gray-600">+260 978 148 593<br>+260 777 738 690<br>+260 777 037 049</p>
-</div>
-</div>
-<div class="flex items-start">
-<div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 mt-1">
-<i class="ri-mail-line text-primary"></i>
-</div>
-<div>
-<h4 class="font-bold text-gray-900 mb-1">Email</h4>
-<p class="text-gray-600">info@trendlinec.com<br>training@trendlinec.com</p>
-</div>
-</div>
-<div class="flex items-start">
-<div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 mt-1">
-<i class="ri-time-line text-primary"></i>
-</div>
-<div>
-<h4 class="font-bold text-gray-900 mb-1">Business Hours</h4>
-<p class="text-gray-600">Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday - Sunday: Closed</p>
-</div>
-</div>
-</div>
-<div class="flex space-x-4">
-<a href="https://www.linkedin.com/company/trendline-training-consultancy-ltd/posts/?feedView=all" target="_blank" class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition">
-<i class="ri-linkedin-fill"></i>
-</a>
-<a href="https://www.facebook.com/share/1R3kZ4imU1/?mibextid=qi2Omg" target="_blank" class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition">
-<i class="ri-facebook-fill"></i>
-</a>
-<!-- <a href="#" class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition">
-<i class="ri-instagram-fill"></i>
-</a> -->
-</div>
-</div>
-<div>
-<div class="bg-white p-8 rounded-lg shadow-md">
-<h3 class="text-xl font-bold text-gray-900 mb-6">Send Us a Message</h3>
-<form id="contactForm"  action="https://formspree.io/f/xrbqjogq"
-method="POST">
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-    <div>
-      <label for="name" class="block text-gray-700 mb-2">Full Name</label>
-      <input type="text" id="name" name="fullName" class="w-full px-4 py-2 border border-gray-300 rounded" required placeholder="Your name">
-    </div>
-    <div>
-      <label for="email" class="block text-gray-700 mb-2">Email Address</label>
-      <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded" required placeholder="Your email">
-    </div>
-    <div>
-      <label for="phone" class="block text-gray-700 mb-2">Phone Number</label>
-      <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border border-gray-300 rounded" required placeholder="Your phone">
-    </div>
-    <div>
-      <label for="company" class="block text-gray-700 mb-2">Company</label>
-      <input type="text" id="company" name="company" class="w-full px-4 py-2 border border-gray-300 rounded" placeholder="Your company">
-    </div>
-  </div>
-  <div class="mb-6">
-    <label for="subject" class="block text-gray-700 mb-2">Subject</label>
-    <input type="text" id="subject" name="subject" class="w-full px-4 py-2 border border-gray-300 rounded" placeholder="Message subject">
-  </div>
-  <div class="mb-6">
-    <label for="message" class="block text-gray-700 mb-2">Message</label>
-    <textarea id="message" rows="5" name="message" class="w-full px-4 py-2 border border-gray-300 rounded" placeholder="Your message"></textarea>
-  </div>
-  <button type="submit" class="w-full bg-primary text-white px-6 py-3 !rounded-button font-medium hover:bg-primary/90 transition whitespace-nowrap">Send Message</button>
-</form>
-<!-- Modal template (hidden by default) -->
-<div id="modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center">
-  <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4 text-center">
-    <div id="modalIcon" class="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full">
-    </div>
-    <h3 id="modalTitle" class="text-xl font-bold text-gray-900 mb-2">Modal Title</h3>
-    <div id="modalContent" class="text-gray-600 mb-6 text-left">
 
-    </div>
-    <button id="modalClose" class="bg-blue-600 text-white px-6 py-2 rounded font-medium hover:bg-blue-700 transition">Close</button>
-  </div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
 <!-- Newsletter Section -->
 <!-- <section class="py-16 bg-gray-50">
 <div class="container mx-auto px-4">
@@ -1258,25 +849,23 @@ method="POST">
 <h3 class="text-lg font-bold mb-6">Quick Links</h3>
 <ul class="space-y-3">
 <li><a href="/" class="text-gray-400 hover:text-white transition">Home</a></li>
-<li><a href="#services" class="text-gray-400 hover:text-white transition">Services</a></li>
-<li><a href="#about" class="text-gray-400 hover:text-white transition">About Us</a></li>
-<li><a href="#programs" class="text-gray-400 hover:text-white transition">Training Programs</a></li>
-<!-- <li><a href="#" class="text-gray-400 hover:text-white transition">Case Studies</a></li>
-<li><a href="#" class="text-gray-400 hover:text-white transition">Blog</a></li> -->
-<li><a href="#contact" class="text-gray-400 hover:text-white transition">Contact</a></li>
+<li><a href="about.html" class="text-gray-400 hover:text-white transition">About Us</a></li>
+<li><a href="corporate.html" class="text-gray-400 hover:text-white transition">Corporate Solutions</a></li>
+<li><a href="programs.html" class="text-gray-400 hover:text-white transition">Training Programs</a></li>
+<li><a href="contact.html" class="text-gray-400 hover:text-white transition">Contact</a></li>
 </ul>
 </div>
 <div>
 <h3 class="text-lg font-bold mb-6">Training Programs</h3>
 <ul class="space-y-3">
-<li><a href="#programs" class="text-gray-400 hover:text-white transition">Data Analytics - Beginner</a></li>
-<li><a href="#programs" class="text-gray-400 hover:text-white transition">Data Analytics - Intermediate</a></li>
-<li><a href="#programs" class="text-gray-400 hover:text-white transition">Data Analytics - Advanced</a></li>
-<li><a href="#programs" class="text-gray-400 hover:text-white transition">Power BI Mastery</a></li>
-<li><a href="#programs" class="text-gray-400 hover:text-white transition">SQL for Data Analysis</a></li>
-<li><a href="#programs" class="text-gray-400 hover:text-white transition">Data Visualization Essentials</a></li>
-<li><a href="#programs" class="text-gray-400 hover:text-white transition">Data Storytelling Mastery</a></li>
-<li><a href="#programs" class="text-gray-400 hover:text-white transition">Soft Skills for Data Professionals</a></li>
+<li><a href="programs.html" class="text-gray-400 hover:text-white transition">Data Analytics - Beginner</a></li>
+<li><a href="programs.html" class="text-gray-400 hover:text-white transition">Data Analytics - Intermediate</a></li>
+<li><a href="programs.html" class="text-gray-400 hover:text-white transition">Data Analytics - Advanced</a></li>
+<li><a href="programs.html" class="text-gray-400 hover:text-white transition">Power BI Mastery</a></li>
+<li><a href="programs.html" class="text-gray-400 hover:text-white transition">SQL for Data Analysis</a></li>
+<li><a href="programs.html" class="text-gray-400 hover:text-white transition">Data Visualization Essentials</a></li>
+<li><a href="programs.html" class="text-gray-400 hover:text-white transition">Data Storytelling Mastery</a></li>
+<li><a href="programs.html" class="text-gray-400 hover:text-white transition">Soft Skills for Data Professionals</a></li>
 </ul>
 </div>
 <div>
@@ -1296,7 +885,7 @@ method="POST">
 </li>
 <li class="flex items-start">
 <i class="ri-global-line text-gray-400 mt-1 mr-3"></i>
-<span class="text-gray-400">www.trendline-training-consultancy-ltd.com</span>
+<span class="text-gray-400">www.trendlinec.com</span>
 </li>
 <li class="flex items-center">
 <i class="ri-time-line text-gray-400 mr-3"></i>
@@ -1316,51 +905,6 @@ method="POST">
 </div>
 </div>
 </footer>
-<!-- Enrollment Modal -->
-<div id="enrollmentModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
-<div class="flex items-center justify-center min-h-screen p-4">
-<div class="bg-white rounded-lg max-w-2xl w-full">
-<div id="after-text" class="p-6">
-<div class="flex justify-between items-start mb-6">
-<h3 class="text-2xl font-bold text-gray-900">Register Your Interest</h3>
-<button id="closeEnrollmentModal" class="text-gray-400 hover:text-gray-600">
-<i class="ri-close-line ri-2x"></i>
-</button>
-</div>
-
-<form id="enrollmentForm" action="https://formspree.io/f/mnndwgrz" method="POST">
-<input type="hidden" id="programName" name="programName">
-<input type="hidden" id="programPrice" name="programPrice">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-<div>
-<label class="block text-gray-700 mb-2">Full Name *</label>
-<input type="text" name="fullName" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary" required>
-</div>
-<div>
-<label class="block text-gray-700 mb-2">Email Address *</label>
-<input type="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary" required>
-</div>
-<div>
-<label class="block text-gray-700 mb-2">Phone Number *</label>
-<input type="tel" name="phone" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary" required>
-</div>
-<div>
-<label class="block text-gray-700 mb-2">Company/Organization</label>
-<input type="text" name="company" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary">
-</div>
-</div>
-<div class="mb-6">
-<label class="block text-gray-700 mb-2">Additional Notes</label>
-<textarea name="notes" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary" placeholder="Any specific requirements or questions?"></textarea>
-</div>
-<div class="flex justify-end">
-<button type="submit" class="bg-primary text-white px-6 py-3 !rounded-button font-medium hover:bg-primary/90 transition whitespace-nowrap">Send Request</button>
-</div>
-</form>
-</div>
-</div>
-</div>
-</div>
 <script src="app.js">
 </script>
 </body>
