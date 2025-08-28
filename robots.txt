@@ -1,0 +1,6 @@
+# Allow all search engines to crawl the site
+User-agent: *
+Disallow:
+
+# Link to sitemap
+Sitemap: https://trendlinec.com/sitemap.xml
