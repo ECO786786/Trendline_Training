@@ -59,3 +59,37 @@ html {
   opacity: 1;
   pointer-events: auto;
 }
+/* Custom Swiper styles to ensure proper height */
+.swiper {
+  height: auto !important;
+  overflow: hidden !important;
+}
+
+.swiper-wrapper {
+  height: auto !important;
+  padding-bottom: 20px; /* Extra padding to prevent cutoff */
+}
+
+.swiper-slide {
+  height: auto !important;
+  min-height: 400px; /* Ensure minimum height for consistency */
+}
+
+/* Navigation button positioning */
+.swiper-button-next,
+.swiper-button-prev {
+  top: 50% !important;
+  margin-top: -22px !important;
+  z-index: 10;
+}
+
+/* Pagination positioning */
+.swiper-pagination {
+  position: relative !important;
+  margin-top: 2rem !important;
+}
+
+/* Ensure cards don't overflow horizontally */
+.swiper-container {
+  overflow: hidden;
+}
