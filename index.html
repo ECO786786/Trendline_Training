@@ -37,6 +37,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+   <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
   <script src="https://cdn.tailwindcss.com/3.4.16"></script>
   <script>
     tailwind.config = {
@@ -88,7 +92,7 @@
 
     <!-- Desktop Nav -->
  <nav class="hidden md:flex space-x-5">
-  <a href="index.html" class="text-gray-800 hover:text-primary font-medium">Home</a>
+  <a href="/" class="text-primary font-medium">Home</a>
   <a href="about.html" class="text-gray-800 hover:text-primary font-medium">About Us</a>
 
  <div class="relative group">
@@ -136,7 +140,7 @@
 <div id="mobileMenu" class="md:hidden bg-white p-4 shadow-md h-screen w-1/2 fixed top-0 right-0 z-50 overflow-y-auto hidden">
 
   <nav class="flex flex-col space-y-4">
-    <a href="/" class="text-gray-800 hover:text-primary font-medium">Home</a>
+    <a href="/" class="text-primary font-medium">Home</a>
     <a href="about.html" class="text-gray-800 hover:text-primary font-medium">About Us</a>
    <div>
   <button id="mobileServicesToggle" class="flex justify-between items-center w-full text-gray-800 font-medium hover:text-primary focus:outline-none">
@@ -707,87 +711,138 @@
 </div>
 <!-- Testimonials Section -->
 <section class="py-20 bg-gray-50">
-<div class="container mx-auto px-4">
-<div class="text-center mb-16">
-<h2 class="text-3xl font-bold text-gray-900 mb-4">What Our Clients Say</h2>
-<p class="text-gray-600 max-w-2xl mx-auto">Hear from organizations that have transformed their approach to data and strategy with our training and consultancy services.</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-<!-- Testimonial 1 -->
-<div class="bg-white p-8 rounded-lg shadow-md">
-<div class="flex items-center mb-6">
-<div class="text-primary">
-<i class="ri-star-fill"></i>
-<i class="ri-star-fill"></i>
-<i class="ri-star-fill"></i>
-<i class="ri-star-fill"></i>
-<i class="ri-star-fill"></i>
-</div>
-</div>
-<p class="text-gray-600 mb-6">"Trendline transformed how we view and manage our operations. With real-time data at our fingertips, we are faster, more informed, and better aligned with our customers' expectations."</p>
-<div class="flex items-center">
-<div class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center mr-4 overflow-hidden">
-  <img src="./image/powerdrive.png" alt="Powerdrive Freight" 
-       class="w-full h-full object-contain p-1">
-</div>
-<div>
-<h4 class="font-bold text-gray-900">Operations Manager</h4>
-<p class="text-gray-500 text-sm">Powerdrive Freight</p>
-</div>
-</div>
-</div>
-<!-- Testimonial 2 -->
-<div class="bg-white p-8 rounded-lg shadow-md">
-<div class="flex items-center mb-6">
-<div class="text-primary">
-<i class="ri-star-fill"></i>
-<i class="ri-star-fill"></i>
-<i class="ri-star-fill"></i>
-<i class="ri-star-fill"></i>
-<i class="ri-star-fill"></i>
-</div>
-</div>
-<p class="text-gray-600 mb-6">"The financial modelling and Power BI training was practical and
-interactive, enhancing my leadership in data-driven decisions.
-It provided the Finance team with relevant, real-work skills and a
-valuable coaching opportunity for me"</p>
-<div class="flex items-center">
-<div class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center mr-4 overflow-hidden">
-  <img src="./image/dangote.jpg" alt="Dangote" 
-       class="w-full h-full object-contain p-1">
-</div>
-<div>
-<h4 class="font-bold text-gray-900">
-Financial Controller</h4>
-<p class="text-gray-500 text-sm">Dangote</p>
-</div>
-</div>
-</div>
-<!-- Testimonial 3 -->
-<div class="bg-white p-8 rounded-lg shadow-md">
-<div class="flex items-center mb-6">
-<div class="text-primary">
-<i class="ri-star-fill"></i>
-<i class="ri-star-fill"></i>
-<i class="ri-star-fill"></i>
-<i class="ri-star-fill"></i>
-<i class="ri-star-fill"></i>
-</div>
-</div>
-<p class="text-gray-600 mb-6">"Trendline designed and managed our Fixed Asset Data Registry with professionalism and precision. Their work streamlined our asset tracking and enhanced our audit readiness. Highly recommended."</p>
-<div class="flex items-center">
-<div class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center mr-4 overflow-hidden">
-  <img src="./image/gatesville.jpeg" alt="Gatesville Investments Limited" 
-       class="w-full h-full object-contain p-1">
-</div>
-<div>
-<h4 class="font-bold text-gray-900">Asset Manager</h4>
-<p class="text-gray-500 text-sm">Gatesville Investments Limited</p>
-</div>
-</div>
-</div>
-</div>
-</div>
+  <div class="container mx-auto px-4">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <h2 class="text-3xl font-bold text-gray-900 mb-4">What Our Clients Say</h2>
+      <p class="text-gray-600 max-w-2xl mx-auto">
+        Hear from organizations that have transformed their approach to data and strategy with our training and consultancy services.
+      </p>
+    </div>
+
+    <!-- Swiper Wrapper -->
+    <div class="relative">
+      <div class="swiper mySwiper" style="--swiper-navigation-size: 18px">
+        <div class="swiper-wrapper">
+
+          <!-- Testimonial 1 -->
+          <div class="swiper-slide">
+            <div class="bg-white p-8 rounded-lg shadow-md">
+              <div class="flex items-center mb-6">
+                <div class="text-primary">
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                </div>
+              </div>
+              <p class="text-gray-600 mb-6">
+                "Trendline transformed how we view and manage our business operations. With accurate, real-time data at our fingertips, decision-making has become faster, more informed, and more effective. The team is better aligned with customer expectations, resulting in stronger performance, improved efficiency, and lasting value across the organization."
+              </p>
+              <div class="flex items-center">
+                <div class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center mr-4 overflow-hidden">
+                  <img src="./image/powerdrive.png" alt="Powerdrive Freight" class="w-full h-full object-contain p-1" />
+                </div>
+                <div>
+                  <h4 class="font-bold text-gray-900">Operations Manager</h4>
+                  <p class="text-gray-500 text-sm">Powerdrive Freight</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="swiper-slide">
+            <div class="bg-white p-8 rounded-lg shadow-md">
+              <div class="flex items-center mb-6">
+                <div class="text-primary">
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                </div>
+              </div>
+              <p class="text-gray-600 mb-6">
+                "The financial modelling and Power BI training was highly practical and interactive, significantly enhancing my ability to lead with data-driven decisions. It equipped our Finance team with relevant, real-world skills while also providing me with a valuable coaching and development opportunity that strengthened both knowledge and leadership."
+              </p>
+              <div class="flex items-center">
+                <div class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center mr-4 overflow-hidden">
+                  <img src="./image/dangote.jpg" alt="Dangote" class="w-full h-full object-contain p-1" />
+                </div>
+                <div>
+                  <h4 class="font-bold text-gray-900">Financial Controller</h4>
+                  <p class="text-gray-500 text-sm">Dangote</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="swiper-slide">
+            <div class="bg-white p-8 rounded-lg shadow-md">
+              <div class="flex items-center mb-6">
+                <div class="text-primary">
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                </div>
+              </div>
+              <p class="text-gray-600 mb-6">
+                "Trendline designed and managed our Fixed Asset Data Registry with professionalism, precision, and great attention to detail. Their thorough work streamlined our asset tracking processes and significantly enhanced our audit readiness, providing efficiency, accuracy, and confidence. We highly recommend their reliable services."
+              </p>
+              <div class="flex items-center">
+                <div class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center mr-4 overflow-hidden">
+                  <img src="./image/gatesville.jpeg" alt="Gatesville Investments Limited" class="w-full h-full object-contain p-1" />
+                </div>
+                <div>
+                  <h4 class="font-bold text-gray-900">Asset Manager</h4>
+                  <p class="text-gray-500 text-sm">Gatesville Investments Limited</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 4 -->
+          <div class="swiper-slide">
+            <div class="bg-white p-8 rounded-lg shadow-md">
+              <div class="flex items-center mb-6">
+                <div class="text-primary">
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                </div>
+              </div>
+              <p class="text-gray-600 mb-6">
+                "The instructor was knowledgeable and paced the training effectively, ensuring all participants could follow regardless of skill level. The sessions were well-structured, engaging, and boosted my confidence in Excel. I would highly recommend this program to colleagues aiming to strengthen their Excel proficiency and skills."
+              </p>
+              <div class="flex items-center">
+                <div class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center mr-4 overflow-hidden">
+                  <img src="./image/liquid.jpg" alt="Liquid Intelligent Technologies" class="w-full h-full object-contain p-1" />
+                </div>
+                <div>
+                  <h4 class="font-bold text-gray-900">Reporting, Planning & Forecasting Officer</h4>
+                  <p class="text-gray-500 text-sm">Liquid Intelligent Technologies</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation Arrows -->
+        <div class="swiper-button-next text-gray-900"></div>
+        <div class="swiper-button-prev text-gray-900"></div>
+
+        <!-- Pagination Dots -->
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </div>
 </section>
 <!-- Call to Action Section -->
 <section class="py-20 bg-primary">
@@ -933,7 +988,33 @@ Event Template - Copy and modify this template for each new event
 </div>
 </div>
 </footer>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="app.js">
 </script>
+<script>
+  const swiper = new Swiper(".mySwiper", {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        loop: true,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        breakpoints: {
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+          },
+        },
+      });
+    </script>
 </body>
 </html>
