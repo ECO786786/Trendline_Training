@@ -72,7 +72,7 @@ html {
 
 .swiper-slide {
   height: auto !important;
-  min-height: 400px; /* Ensure minimum height for consistency */
+  min-height: 350px; /* Ensure minimum height for consistency */
 }
 
 /* Navigation button positioning */
@@ -86,7 +86,7 @@ html {
 /* Pagination positioning */
 .swiper-pagination {
   position: relative !important;
-  margin-top: 2rem !important;
+  /* margin-top: 2rem !important; */
 }
 
 /* Ensure cards don't overflow horizontally */
