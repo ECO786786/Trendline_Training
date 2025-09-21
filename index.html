@@ -121,6 +121,7 @@
   </div>
 </div>
   <a href="programs.html" class="text-gray-800 hover:text-primary font-medium">Programs</a>
+  <a href="gallery.html" class="text-gray-800 hover:text-primary font-medium">Gallery</a>
   <a href="contact.html" class="text-gray-800 hover:text-primary font-medium">Contact</a>
 </nav>
 
@@ -152,10 +153,10 @@
   </button>
   <div id="mobileServicesSubmenu" class="hidden mt-2 ml-4 flex flex-col space-y-2">
     <a href="corporate.html" class="text-gray-800 hover:text-primary font-medium">Corporate Solutions</a>
-
   </div>
 </div>
     <a href="programs.html" class="text-gray-800 hover:text-primary font-medium">Programs</a>
+    <a href="gallery.html" class="text-gray-800 hover:text-primary font-medium">Gallery</a>
     <a href="contact.html" class="text-gray-800 hover:text-primary font-medium">Contact</a>
   </nav>
 </div>
@@ -171,14 +172,18 @@
 <p class="text-lg text-gray-700 mb-8">Trendline Training & Consultancy provides expert-led corporate training and consultancy services that empower organizations to leverage data for strategic decision-making and sustainable growth.</p>
 <div class="flex flex-col gap-4">
 <div class="flex flex-col sm:flex-row gap-4">
-  <!-- <button
-  onclick="document.getElementById('services').scrollIntoView({ behavior: 'smooth' });"
+<a
+  href="programs.html"
+  class="bg-primary text-white px-8 py-3 !rounded-button font-medium hover:bg-primary/90 transition whitespace-nowrap text-center inline-block"
+>
+  Explore Our Programs
+</a>
+ <button
+  onclick="document.getElementById('upcoming-events').scrollIntoView({ behavior: 'smooth' });"
   class="bg-primary text-white px-8 py-3 !rounded-button font-medium hover:bg-primary/90 transition whitespace-nowrap"
 >
-  Explore Our Services
-</button> -->
-
-<!-- <a href="#upcoming-events" class="bg-primary text-white px-8 py-3 !rounded-button font-medium hover:bg-primary/90 transition whitespace-nowrap">Upcoming Events</a> -->
+  Upcoming Events
+</button>
 <!-- Services Modal -->
 <div id="servicesModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden" style="opacity: 0">
 <div class="flex items-center justify-center min-h-screen p-4">
@@ -869,32 +874,81 @@ Schedule a Call
 </div>
 </section>
 <!-- Upcoming Events Section -->
-<!-- <section class="py-20 bg-gray-50">
+<section class="py-20 bg-gray-50" id="upcoming-events">
 <div class="container mx-auto px-4">
 <div class="text-center mb-16">
 <h2 class="text-3xl font-bold text-gray-900 mb-4">Upcoming Events</h2>
 <p class="text-gray-600 max-w-2xl mx-auto">Join us at our upcoming events to enhance your data analytics skills and network with industry professionals.</p>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-Event Template - Copy and modify this template for each new event
+<div class="bg-white rounded-lg shadow-md overflow-hidden">
+<div class="h-48 bg-gray-200" style="background-image: url('image/conference-one.jpg'); background-size: cover; background-position: center;"></div>
+<div class="p-6">
+  <div class="flex items-center mb-4">
+    <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-3">
+      <i class="ri-calendar-event-line text-primary"></i>
+    </div>
+    <div>
+      <h3 class="font-bold text-gray-900">Tech Innovators Summit 2025</h3>
+      <p class="text-gray-500 text-sm">October 12, 2025 • 10:00 AM – 4:00 PM</p>
+    </div>
+  </div>
+  <p class="text-gray-600 mb-4">
+    Join industry leaders and innovators for a day of networking, workshops, and insights into the future of technology. 
+    Topics include AI advancements, green tech, and startup growth strategies.
+  </p>
+  <div class="flex items-center justify-between">
+    <button class="register-event-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">
+      Register Now
+    </button>
+  </div>
+</div>
+</div>
 
 <div class="bg-white rounded-lg shadow-md overflow-hidden">
-<div class="h-48 bg-gray-200" style="background-image: url('[Insert Event Image URL]'); background-size: cover; background-position: center;"></div>
+<div class="h-48 bg-gray-200" style="background-image: url('image/conference-one.jpg'); background-size: cover; background-position: center;"></div>
 <div class="p-6">
-<div class="flex items-center mb-4">
-<div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-3">
-<i class="ri-calendar-event-line text-primary"></i>
+  <div class="flex items-center mb-4">
+    <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-3">
+      <i class="ri-calendar-event-line text-primary"></i>
+    </div>
+    <div>
+      <h3 class="font-bold text-gray-900">Tech Innovators Summit 2025</h3>
+      <p class="text-gray-500 text-sm">October 12, 2025 • 10:00 AM – 4:00 PM</p>
+    </div>
+  </div>
+  <p class="text-gray-600 mb-4">
+    Join industry leaders and innovators for a day of networking, workshops, and insights into the future of technology. 
+    Topics include AI advancements, green tech, and startup growth strategies.
+  </p>
+  <div class="flex items-center justify-between">
+    <button class="register-event-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">
+      Register Now
+    </button>
+  </div>
 </div>
-<div>
-<h3 class="font-bold text-gray-900">[Event Title]</h3>
-<p class="text-gray-500 text-sm">[Date] • [Time]</p>
 </div>
-</div>
-<p class="text-gray-600 mb-4">[Event Description]</p>
-<div class="flex items-center justify-between">
-<span class="text-primary font-medium">[Price]</span>
-<button class="register-event-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">Register Now</button>
-</div>
+<div class="bg-white rounded-lg shadow-md overflow-hidden">
+<div class="h-48 bg-gray-200" style="background-image: url('image/conference-one.jpg'); background-size: cover; background-position: center;"></div>
+<div class="p-6">
+  <div class="flex items-center mb-4">
+    <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-3">
+      <i class="ri-calendar-event-line text-primary"></i>
+    </div>
+    <div>
+      <h3 class="font-bold text-gray-900">Tech Innovators Summit 2025</h3>
+      <p class="text-gray-500 text-sm">October 12, 2025 • 10:00 AM – 4:00 PM</p>
+    </div>
+  </div>
+  <p class="text-gray-600 mb-4">
+    Join industry leaders and innovators for a day of networking, workshops, and insights into the future of technology. 
+    Topics include AI advancements, green tech, and startup growth strategies.
+  </p>
+  <div class="flex items-center justify-between">
+    <button class="register-event-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-primary/90 transition whitespace-nowrap">
+      Register Now
+    </button>
+  </div>
 </div>
 </div>
 
@@ -903,7 +957,7 @@ Event Template - Copy and modify this template for each new event
 <button class="bg-white border border-gray-300 text-gray-800 px-8 py-3 !rounded-button font-medium hover:bg-gray-50 transition whitespace-nowrap">View All Events</button>
 </div>
 </div>
-</section> -->
+</section>
 <!-- Footer -->
 <footer class="bg-gray-900 text-white pt-16 pb-8">
 <div class="container mx-auto px-4">
@@ -936,6 +990,7 @@ Event Template - Copy and modify this template for each new event
 <li><a href="about.html" class="text-gray-400 hover:text-white transition">About Us</a></li>
 <li><a href="corporate.html" class="text-gray-400 hover:text-white transition">Corporate Solutions</a></li>
 <li><a href="programs.html" class="text-gray-400 hover:text-white transition">Training Programs</a></li>
+<li><a href="gallery.html" class="text-gray-400 hover:text-white transition">Gallery</a></li>
 <li><a href="contact.html" class="text-gray-400 hover:text-white transition">Contact</a></li>
 </ul>
 </div>
