@@ -272,70 +272,60 @@
         class="fixed inset-0 bg-black bg-opacity-50 hidden z-30 md:hidden"
       ></div>
     </header>
-    <!-- Gallery Section -->
     <main class="pt-28 pb-20">
       <section class="container mx-auto px-4">
         <div class="text-center">
           <h1 class="text-3xl font-bold text-gray-900 mb-6">Our Gallery</h1>
           <p class="text-gray-600 max-w-2xl mx-auto mb-10">
             Explore our work, team, and achievements through this visual journey
-            showcasing our AI consulting expertise and successful project
+            showcasing our data consulting expertise and successful project
             implementations.
           </p>
         </div>
-
-        <!-- Grid -->
         <div
           class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
           role="list"
         >
-          <!-- Example Image -->
           <figure
             class="relative group cursor-pointer overflow-hidden rounded-lg shadow-md"
             role="listitem"
           >
             <img
               src="image/liquid-training.jpg"
-              alt="Training session with participants"
+              alt="Excel Training Group Work"
               class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
             />
             <figcaption
               class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white text-sm p-2"
             >
-              Training Workshop
+              Excel Training Group Work
             </figcaption>
           </figure>
-
-          <!-- Another Image -->
           <figure
             class="relative group cursor-pointer overflow-hidden rounded-lg shadow-md"
             role="listitem"
           >
             <img
               src="image/liquid-team.jpg"
-              alt="Liquid Team Event"
+              alt="Liquid Telecom Team"
               class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
             />
             <figcaption
               class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white text-sm p-2"
             >
-              Liquid Team Event
+              Liquid Telecom Team
             </figcaption>
           </figure>
-
-          <!-- Video Thumbnail in Grid -->
           <figure
             class="relative group cursor-pointer overflow-hidden rounded-lg shadow-md"
             role="listitem"
             data-video="videos/training-highlights.mp4"
           >
-            <!-- Thumbnail image (could be screenshot of the video or a generic play icon) -->
             <img
               src="image/video-placeholder.png"
               alt="Training Highlights Video"
               class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
             />
-            <!-- Play Icon Overlay -->
             <div
               class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition"
             >
@@ -347,89 +337,83 @@
               Training Highlights Video
             </figcaption>
           </figure>
-
-          <!-- Add more images below -->
           <figure
             class="relative group cursor-pointer overflow-hidden rounded-lg shadow-md"
             role="listitem"
           >
             <img
               src="image/transformation-team.jpg"
-              alt="Transformation Data Team"
+              alt="What We Stand For ..."
               class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
             />
             <figcaption
               class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white text-sm p-2"
             >
-              Transformation Data Team
+              What We Stand For ...
             </figcaption>
           </figure>
-          <!-- Add more images below -->
           <figure
             class="relative group cursor-pointer overflow-hidden rounded-lg shadow-md"
             role="listitem"
           >
             <img
               src="image/transformation-team-2.jpg"
-              alt="Treandline Team"
+              alt="Dangote Cement Zambia Staff"
               class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
             />
             <figcaption
               class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white text-sm p-2"
             >
-              Treandline Team
+              Dangote Cement Zambia Staff
             </figcaption>
           </figure>
-          <!-- Add more images below -->
-          <figure
-            class="relative group cursor-pointer overflow-hidden rounded-lg shadow-md"
-            role="listitem"
-          >
-            <img
-              src="image/transformation-team-3.jpg"
-              alt="Treandline Team"
-              class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
-            />
-            <figcaption
-              class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white text-sm p-2"
-            >
-              Treandline Team
-            </figcaption>
-          </figure>
-          <!-- Add more images below -->
           <figure
             class="relative group cursor-pointer overflow-hidden rounded-lg shadow-md"
             role="listitem"
           >
             <img
               src="image/presentation.jpg"
-              alt="Presentation Session"
+              alt="Certificate Presentation Session"
               class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
             />
             <figcaption
               class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white text-sm p-2"
             >
-              Presentation Session
+              Certificate Presentation Session
             </figcaption>
           </figure>
-          <!-- Add more images below -->
           <figure
             class="relative group cursor-pointer overflow-hidden rounded-lg shadow-md"
             role="listitem"
           >
             <img
               src="image/training-day.jpg"
-              alt="Training Day"
+              alt="Power BI Training"
               class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
             />
             <figcaption
               class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white text-sm p-2"
             >
-              Training Day
+              Power BI Training
             </figcaption>
           </figure>
         </div>
       </section>
+      <div
+        id="lightbox"
+        class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center hidden z-50"
+        role="dialog"
+        aria-modal="true"
+      >
+        <button
+          onclick="closeLightbox()"
+          class="absolute top-5 right-5 text-white text-2xl"
+          aria-label="Close"
+        >
+          &times;
+        </button>
+        <div id="lightboxContent" class="max-h-[90vh] max-w-[90vw]"></div>
+      </div>
     </main>
     <!-- Footer -->
     <footer class="bg-gray-900 text-white pt-16 pb-8">
@@ -639,22 +623,6 @@
         </div>
       </div>
     </footer>
-    <!-- Modal (for enlarging images or playing videos) -->
-    <div
-      id="lightbox"
-      class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center hidden z-50"
-      role="dialog"
-      aria-modal="true"
-    >
-      <button
-        onclick="closeLightbox()"
-        class="absolute top-5 right-5 text-white text-2xl"
-        aria-label="Close"
-      >
-        &times;
-      </button>
-      <div id="lightboxContent" class="max-h-[90vh] max-w-[90vw]"></div>
-    </div>
 
     <script src="app.js"></script>
     <script>
