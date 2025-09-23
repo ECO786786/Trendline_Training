@@ -769,6 +769,102 @@ const courseData = [
     prerequisites: "None",
     certificate: "Yes",
   },
+  {
+    id: 9,
+    title: "Cyber Security",
+    level: "All Levels",
+    duration: "5 Days",
+    prices: {
+      ZM: { amount: 1200, currency: "ZMW" },
+      US: { amount: 60, currency: "USD" },
+    },
+    overview:
+      "Gain practical skills to protect systems, data, and networks from evolving cyber threats. This course covers threat detection, risk management, compliance, and data protection to help organisations build strong security practices.",
+    corporateBenefits: [
+      "Strengthen organisational resilience against cyber attacks and data breaches",
+      "Equip staff with practical skills to detect, prevent, and respond to security incidents",
+      "Ensure compliance with regulatory and industry cyber security standards",
+      "Protect sensitive business and customer data through best practices",
+      "Foster a company-wide security culture with proactive risk management",
+    ],
+    content: [
+      {
+        title: "Cyber Security Fundamentals",
+        description:
+          "Understand the key principles of cyber security, including threats, vulnerabilities, and risk management.",
+      },
+      {
+        title: "Network & System Security",
+        description:
+          "Learn to secure networks, servers, and applications against common attack vectors.",
+      },
+      {
+        title: "Risk Management & Compliance",
+        description:
+          "Explore frameworks for identifying vulnerabilities, mitigating risks, and meeting compliance standards.",
+      },
+      {
+        title: "Incident Detection & Response",
+        description:
+          "Develop strategies for monitoring, detecting, and effectively responding to security incidents.",
+      },
+      {
+        title: "Data Protection & Privacy",
+        description:
+          "Gain best practices for safeguarding sensitive data and ensuring privacy regulations are met.",
+      },
+    ],
+    prerequisites: "None",
+    certificate: "Yes",
+  },
+  {
+    id: 10,
+    title: "Financial Modelling",
+    level: "All Levels",
+    duration: "5 Days",
+    prices: {
+      ZM: { amount: 1500, currency: "ZMW" },
+      US: { amount: 75, currency: "USD" },
+    },
+    overview:
+      "Learn to design, build, and apply financial models for decision-making, forecasting, and strategy. This course equips professionals with the tools to analyse financial data, test business scenarios, and support strategic planning with confidence.",
+    corporateBenefits: [
+      "Improve accuracy and efficiency in financial planning and forecasting",
+      "Enable staff to analyse complex business scenarios and support strategic decision-making",
+      "Strengthen investor presentations and stakeholder communications with data-driven insights",
+      "Reduce financial risk through robust scenario analysis and sensitivity testing",
+      "Equip teams with practical modelling techniques tailored to real business environments",
+    ],
+    content: [
+      {
+        title: "Introduction to Financial Modelling",
+        description:
+          "Understand the purpose of financial models, key components, and best practices for model design.",
+      },
+      {
+        title: "Building Forecasting Models",
+        description:
+          "Learn techniques for creating revenue, cost, and cash flow forecasts to support business planning.",
+      },
+      {
+        title: "Scenario & Sensitivity Analysis",
+        description:
+          "Test the impact of different business assumptions and market conditions on financial outcomes.",
+      },
+      {
+        title: "Valuation Techniques",
+        description:
+          "Apply discounted cash flow, comparable company, and other valuation methods in practical models.",
+      },
+      {
+        title: "Practical Model Application",
+        description:
+          "Develop, test, and present a comprehensive financial model to support strategic decisions.",
+      },
+    ],
+    prerequisites: "Basic knowledge of Excel or spreadsheets recommended",
+    certificate: "Yes",
+  },
 ];
 
 let isCorporate = false; // initial mode
