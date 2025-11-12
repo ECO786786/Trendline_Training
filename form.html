@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Registration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-lg">
+      <h2 class="text-2xl font-bold text-center mb-6">Registration Form</h2>
+
+      <form id="registrationForm" class="space-y-4">
+        <div class="grid grid-cols-2 gap-4">
+          <input
+            id="first_name"
+            type="text"
+            placeholder="First Name"
+            required
+            class="p-3 border border-gray-300 rounded-md w-full focus:ring-2 focus:ring-blue-500"
+          />
+          <input
+            id="surname"
+            type="text"
+            placeholder="Surname"
+            required
+            class="p-3 border border-gray-300 rounded-md w-full focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+
+        <input
+          id="email"
+          type="email"
+          placeholder="Email"
+          required
+          class="p-3 border border-gray-300 rounded-md w-full focus:ring-2 focus:ring-blue-500"
+        />
+        <input
+          id="number"
+          type="text"
+          placeholder="Contact Number"
+          required
+          class="p-3 border border-gray-300 rounded-md w-full focus:ring-2 focus:ring-blue-500"
+        />
+        <input
+          id="institution"
+          type="text"
+          placeholder="Institution"
+          required
+          class="p-3 border border-gray-300 rounded-md w-full focus:ring-2 focus:ring-blue-500"
+        />
+        <input
+          id="position"
+          type="text"
+          placeholder="Position"
+          required
+          class="p-3 border border-gray-300 rounded-md w-full focus:ring-2 focus:ring-blue-500"
+        />
+
+        <button
+          type="submit"
+          id="submitBtn"
+          class="w-full bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-md transition"
+        >
+          Register
+        </button>
+      </form>
+    </div>
+
+    <div
+      id="successModal"
+      class="fixed inset-0 bg-black/50 hidden items-center justify-center"
+    >
+      <div class="bg-white rounded-2xl p-6 shadow-lg text-center max-w-sm">
+        <h3 class="text-xl font-semibold text-green-600 mb-2">
+          Registration Complete!
+        </h3>
+        <p>Thank you for registering. A confirmation email has been sent.</p>
+        <button
+          id="closeSuccess"
+          class="mt-4 bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+
+    <div
+      id="errorModal"
+      class="fixed inset-0 bg-black/50 hidden items-center justify-center"
+    >
+      <div class="bg-white rounded-2xl p-6 shadow-lg text-center max-w-sm">
+        <h3 class="text-xl font-semibold text-red-600 mb-2">Error!</h3>
+        <p>Something went wrong. Please try again later.</p>
+        <button
+          id="closeError"
+          class="mt-4 bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+
+    <script>
+      const form = document.getElementById("registrationForm");
+      const successModal = document.getElementById("successModal");
+      const errorModal = document.getElementById("errorModal");
+      const closeSuccess = document.getElementById("closeSuccess");
+      const closeError = document.getElementById("closeError");
+      const button = document.getElementById("submitBtn");
+
+      const NETLIFY_URL =
+        "https://your-netlify-app.netlify.app/.netlify/functions/submit-registration";
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        button.textContent = "Submitting...";
+        button.disabled = true;
+
+        const formData = {
+          first_name: document.getElementById("first_name").value,
+          surname: document.getElementById("surname").value,
+          email: document.getElementById("email").value,
+          number: document.getElementById("number").value,
+          institution: document.getElementById("institution").value,
+          position: document.getElementById("position").value,
+        };
+
+        try {
+          const res = await fetch(NETLIFY_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(formData),
+          });
+
+          if (!res.ok) throw new Error();
+          const data = await res.json();
+
+          if (data.message.includes("success")) {
+            form.reset();
+            successModal.classList.remove("hidden");
+            successModal.classList.add("flex");
+          } else throw new Error();
+        } catch (err) {
+          errorModal.classList.remove("hidden");
+          errorModal.classList.add("flex");
+        } finally {
+          button.textContent = "Register";
+          button.disabled = false;
+        }
+      });
+
+      closeSuccess.addEventListener("click", () =>
+        successModal.classList.add("hidden")
+      );
+      closeError.addEventListener("click", () =>
+        errorModal.classList.add("hidden")
+      );
+    </script>
+  </body>
+</html>
