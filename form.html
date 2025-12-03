@@ -10,6 +10,11 @@
     <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-lg">
       <h2 class="text-2xl font-bold text-center mb-6">Registration Form</h2>
 
+      <div
+        id="debugInfo"
+        class="hidden mb-4 p-3 bg-gray-100 rounded text-xs font-mono"
+      ></div>
+
       <form id="registrationForm" class="space-y-4">
         <div class="grid grid-cols-2 gap-4">
           <input
@@ -37,7 +42,7 @@
         />
         <input
           id="number"
-          type="text"
+          type="tel"
           placeholder="Contact Number"
           required
           class="p-3 border border-gray-300 rounded-md w-full focus:ring-2 focus:ring-blue-500"
@@ -60,41 +65,51 @@
         <button
           type="submit"
           id="submitBtn"
-          class="w-full bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-md transition"
+          class="w-full bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-md transition disabled:bg-gray-400"
         >
           Register
         </button>
       </form>
     </div>
 
+    <!-- Success Modal -->
     <div
       id="successModal"
-      class="fixed inset-0 bg-black/50 hidden items-center justify-center"
+      class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50"
     >
       <div class="bg-white rounded-2xl p-6 shadow-lg text-center max-w-sm">
+        <div class="text-green-600 text-5xl mb-3">✓</div>
         <h3 class="text-xl font-semibold text-green-600 mb-2">
           Registration Complete!
         </h3>
-        <p>Thank you for registering. A confirmation email has been sent.</p>
+        <p class="text-gray-600">
+          Thank you for registering. A confirmation email has been sent.
+        </p>
         <button
           id="closeSuccess"
-          class="mt-4 bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700"
+          class="mt-4 bg-green-600 text-white px-6 py-2 rounded-md hover:bg-green-700 transition"
+          href="https://trendlinec.com/"
         >
-          Close
+          Return Home
         </button>
       </div>
     </div>
 
+    <!-- Error Modal -->
     <div
       id="errorModal"
-      class="fixed inset-0 bg-black/50 hidden items-center justify-center"
+      class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50"
     >
       <div class="bg-white rounded-2xl p-6 shadow-lg text-center max-w-sm">
+        <div class="text-red-600 text-5xl mb-3">✗</div>
         <h3 class="text-xl font-semibold text-red-600 mb-2">Error!</h3>
-        <p>Something went wrong. Please try again later.</p>
+        <p id="errorMessage" class="text-gray-600 mb-2">
+          Something went wrong. Please try again later.
+        </p>
+        <p id="errorDetails" class="text-xs text-gray-500 hidden"></p>
         <button
           id="closeError"
-          class="mt-4 bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700"
+          class="mt-4 bg-red-600 text-white px-6 py-2 rounded-md hover:bg-red-700 transition"
         >
           Close
         </button>
@@ -105,43 +120,71 @@
       const form = document.getElementById("registrationForm");
       const successModal = document.getElementById("successModal");
       const errorModal = document.getElementById("errorModal");
+      const errorMessage = document.getElementById("errorMessage");
+      const errorDetails = document.getElementById("errorDetails");
       const closeSuccess = document.getElementById("closeSuccess");
       const closeError = document.getElementById("closeError");
       const button = document.getElementById("submitBtn");
+      const debugInfo = document.getElementById("debugInfo");
 
-      const NETLIFY_URL =
-        "https://your-netlify-app.netlify.app/.netlify/functions/submit-registration";
+      const API_URL = "http://127.0.0.1:3000/register";
+
+      const isDebug = window.location.search.includes("debug");
+      if (isDebug) debugInfo.classList.remove("hidden");
+
+      function log(message) {
+        if (isDebug) {
+          debugInfo.textContent += message + "\n";
+        }
+      }
 
       form.addEventListener("submit", async (e) => {
         e.preventDefault();
+
         button.textContent = "Submitting...";
         button.disabled = true;
 
         const formData = {
-          first_name: document.getElementById("first_name").value,
-          surname: document.getElementById("surname").value,
-          email: document.getElementById("email").value,
-          number: document.getElementById("number").value,
-          institution: document.getElementById("institution").value,
-          position: document.getElementById("position").value,
+          first_name: document.getElementById("first_name").value.trim(),
+          surname: document.getElementById("surname").value.trim(),
+          email: document.getElementById("email").value.trim(),
+          number: document.getElementById("number").value.trim(),
+          institution: document.getElementById("institution").value.trim(),
+          position: document.getElementById("position").value.trim(),
         };
 
+        log(`Submitting to: ${API_URL}`);
+        log(`Data: ${JSON.stringify(formData)}`);
+
         try {
-          const res = await fetch(NETLIFY_URL, {
+          const res = await fetch(API_URL, {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            headers: {
+              "Content-Type": "application/json",
+            },
             body: JSON.stringify(formData),
           });
 
-          if (!res.ok) throw new Error();
-          const data = await res.json();
+          log(`Response status: ${res.status}`);
 
-          if (data.message.includes("success")) {
+          const data = await res.json();
+          log(`Response data: ${JSON.stringify(data)}`);
+
+          if (res.ok && data.message === "success") {
             form.reset();
             successModal.classList.remove("hidden");
             successModal.classList.add("flex");
-          } else throw new Error();
+          } else {
+            throw new Error(
+              data.error || data.message || "Registration failed"
+            );
+          }
         } catch (err) {
+          log(`Error: ${err.message}`);
+          errorMessage.textContent =
+            "Unable to submit registration. Please check:";
+          errorDetails.textContent = `Is the server running on port 3000?\n• Error: ${err.message}`;
+          errorDetails.classList.remove("hidden");
           errorModal.classList.remove("hidden");
           errorModal.classList.add("flex");
         } finally {
@@ -150,12 +193,16 @@
         }
       });
 
-      closeSuccess.addEventListener("click", () =>
-        successModal.classList.add("hidden")
-      );
-      closeError.addEventListener("click", () =>
-        errorModal.classList.add("hidden")
-      );
+      closeSuccess.addEventListener("click", () => {
+        successModal.classList.remove("flex");
+        successModal.classList.add("hidden");
+      });
+
+      closeError.addEventListener("click", () => {
+        errorModal.classList.remove("flex");
+        errorModal.classList.add("hidden");
+        errorDetails.classList.add("hidden");
+      });
     </script>
   </body>
 </html>
