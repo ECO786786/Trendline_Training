@@ -48,19 +48,53 @@
       type="image/jpeg"
     />
     <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Trendline Training & Consultancy Ltd",
-        "url": "https://trendlinec.com",
-        "logo": "https://static.readdy.ai/image/7a2941f4f4bd206a071b69a2951de2dc/66ca896711b4be15fa15f7657f0c555e.jpeg",
-        "description": "Expert-led corporate training and consultancy helping businesses unlock the power of data for strategic growth.",
-        "sameAs": [
-          "https://www.facebook.com/share/1R3kZ4imU1/?mibextid=qi2Omg",
-          "https://www.linkedin.com/company/trendline-training-consultancy-ltd"
-        ]
-      }
-    </script>
+{
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "name": "Trendline Training & Consultancy Ltd",
+  "alternateName": "Trendline Training",
+  "url": "https://trendlinec.com",
+  "logo": "https://static.readdy.ai/image/7a2941f4f4bd206a071b69a2951de2dc/66ca896711b4be15fa15f7657f0c555e.jpeg",
+  "description": "Expert-led corporate training and consultancy helping businesses unlock the power of data for strategic growth, innovation, and long term success.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "4th Floor, Anchor House, Suite 405, Cairo Road",
+    "addressLocality": "Lusaka",
+    "postalCode": "380104",
+    "addressCountry": "ZM"
+  },
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "telephone": "+260978148593",
+      "contactType": "customer service",
+      "areaServed": "ZM",
+      "availableLanguage": "English"
+    },
+    {
+      "@type": "ContactPoint",
+      "telephone": "+260777738690",
+      "contactType": "sales",
+      "areaServed": "ZM",
+      "availableLanguage": "English"
+    }
+  ],
+  "email": "info@trendlinec.com",
+  "telephone": "+260978148593",
+  "sameAs": [
+    "https://www.facebook.com/share/1R3kZ4imU1/?mibextid=qi2Omg",
+    "https://www.linkedin.com/company/trendline-training-consultancy-ltd"
+  ],
+  "areaServed": {
+    "@type": "Country",
+    "name": "Zambia"
+  },
+  "founder": {
+    "@type": "Organization",
+    "name": "Trendline Training & Consultancy Ltd"
+  }
+}
+</script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -451,9 +485,9 @@
                   >
                   <span class="text-primary sr-only">Free</span>
                   <a
-                    href="form.html"
+                    href="registration-form.html"
                     type="button"
-                    class="register-event-btn bg-gradient-to-r from-red-500 to-red-600 text-white px-8 py-3 rounded-full font-semibold hover:from-red-600 hover:to-red-700 transition-all duration-300 whitespace-nowrap cursor-pointer"
+                    class="bg-gradient-to-r from-red-500 to-red-600 text-white px-8 py-3 rounded-full font-semibold hover:from-red-600 hover:to-red-700 transition-all duration-300 whitespace-nowrap cursor-pointer"
                   >
                     Register Now
                   </a>
@@ -461,7 +495,7 @@
               </div>
             </div>
             <img
-              src="image/live-weninar-hr-analytics.jpg"
+              src="image/live-hr-analytics.jpg"
               alt="Live Webinar"
               class="w-full object-cover rounded-2xl shadow-lg"
             />
@@ -1362,7 +1396,42 @@
                 </div>
               </div>
 
-              <!-- Testimonial 3 -->
+               <!-- Testimonial 3 -->
+              <div class="swiper-slide">
+                <div class="bg-white p-8 rounded-lg shadow-md min-h-[400px] flex flex-col">
+                  <div class="flex items-center mb-6">
+                    <div class="text-primary">
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                    </div>
+                  </div>
+                  <p class="text-gray-600 mb-6 flex-grow">
+                    "The training session was very good overall. The trainer demonstrated strong knowledge of the subject matter and delivered the content in an engaging, easy-to-follow way. The key lessons were clearly explained, practical, and directly applicable, allowing me to start using what I learned immediately after the session."
+                  </p>
+                  <div class="flex items-center mt-auto">
+                    <div
+                      class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center mr-4 overflow-hidden"
+                    >
+                      <img
+                        src="/image/Zambia_Sugar_Plc_Logo.png"
+                        alt="Zambia Sugar PLC"
+                        class="w-full h-full object-contain p-1"
+                      />
+                    </div>
+                    <div>
+                      <h4 class="font-bold text-gray-900">
+                        Results Delivery Office Analyst
+                      </h4>
+                      <p class="text-gray-500 text-sm">Zambia Sugar</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Testimonial 4 -->
               <div class="swiper-slide">
                 <div class="bg-white p-8 rounded-lg shadow-md min-h-[400px] flex flex-col">
                   <div class="flex items-center mb-6">
@@ -1402,7 +1471,7 @@
                 </div>
               </div>
 
-              <!-- Testimonial 4 -->
+              <!-- Testimonial 5 -->
               <div class="swiper-slide">
                 <div class="bg-white p-8 rounded-lg shadow-md min-h-[400px] flex flex-col">
                   <div class="flex items-center mb-6">
@@ -1442,40 +1511,7 @@
                 </div>
               </div>
 
-              <!-- Testimonial 5 -->
-              <div class="swiper-slide">
-                <div class="bg-white p-8 rounded-lg shadow-md min-h-[400px] flex flex-col">
-                  <div class="flex items-center mb-6">
-                    <div class="text-primary">
-                      <i class="ri-star-fill"></i>
-                      <i class="ri-star-fill"></i>
-                      <i class="ri-star-fill"></i>
-                      <i class="ri-star-fill"></i>
-                      <i class="ri-star-fill"></i>
-                    </div>
-                  </div>
-                  <p class="text-gray-600 mb-6 flex-grow">
-                    "The training session was very good overall. The trainer demonstrated strong knowledge of the subject matter and delivered the content in an engaging, easy-to-follow way. The key lessons were clearly explained, practical, and directly applicable, allowing me to start using what I learned immediately after the session."
-                  </p>
-                  <div class="flex items-center mt-auto">
-                    <div
-                      class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center mr-4 overflow-hidden"
-                    >
-                      <img
-                        src="/image/Zambia_Sugar_Plc_Logo.png"
-                        alt="Zambia Sugar PLC"
-                        class="w-full h-full object-contain p-1"
-                      />
-                    </div>
-                    <div>
-                      <h4 class="font-bold text-gray-900">
-                        Results Delivery Office Analyst
-                      </h4>
-                      <p class="text-gray-500 text-sm">Zambia Sugar</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+             
             </div>
 
             <!-- Navigation Arrows -->
